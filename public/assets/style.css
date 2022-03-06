@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'Vazir';
+    src:  url('fonts/Vazir-Regular.woff2') format('woff2'),
+    url('fonts/Vazir-Regular.woff') format('woff'),
+    url('fonts/Vazir-Regular.eot') format('eot'),
+    url('fonts/Vazir-Regular.woff') format('woff');
+
+}
+
+*,body{
+    direction: rtl;
+    font-family: 'Vazir';
+}
+
+body{
+    background-color: #f5f5f5;
+}
+
+
+#menu{
+    background-color: #555;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+#navbarSupportedContent ul li a{
+    color: #fff;
+}
+
+.summary{
+    background-color: #fff;
+    padding: 10px;
+}
+
+.summary ul {
+    list-style-type: none;
+}
+.summary ul li {
+    padding-top: 10px;
+    
+}
+
+.picture-icon{
+    background-color: #f5f5f5;
+   padding-top: 25px;
+   padding-bottom: 25px;
+   cursor: pointer;
+}
+
+.picture-icon i {
+    font-size: 50px;
+    color: #ecebeb;
+}
+
+.upload-image-btn{
+    border: 1px solid #e8e8e8;
+}
+
+.fullname{
+    font-size: 22px;
+    color: #f9a60b;
+}
+.download-cv-btn{
+    border: 1px solid #1111;
+    margin-right: 15px;
+    color: #000;
+    
+}
