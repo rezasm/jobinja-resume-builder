@@ -31,6 +31,7 @@ body{
 .summary{
     background-color: #fff;
     padding: 10px;
+
 }
 
 .summary ul {
@@ -67,3 +68,54 @@ body{
     color: #000;
     
 }
+
+.box{
+
+    background-color: #fff;
+   
+
+}
+
+.box-header{
+    background-color: #dddddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.box-content{
+    padding: 10px;
+}
+
+.personal-info .item{
+    margin-top: 20px;
+}
+
+.skill-item{
+    background-color: #f9f9f9;
+    padding: 7px;
+    width: max-content;
+    border: 1px solid #ececec;
+    color: #000;
+    text-decoration: none;
+    margin: 3px;
+}
+
+.job-item{
+    padding: 25px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+ .add-job-btn{
+     text-decoration: none;
+     color: #000;
+ }
+
+ .add-job{
+     background-color: #d8d8d8;
+     padding: 10px;
+     text-align: center;
+     cursor: pointer;
+ }
+
+ 
