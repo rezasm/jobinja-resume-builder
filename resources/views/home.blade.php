@@ -64,7 +64,7 @@
                         <div class="col-10">
     
                             <div class=" w-100">
-                                <ul>
+                                <ul >
                                     <li class="fullname">
                                         رضا سلام محمره
                                     </li>
@@ -85,7 +85,10 @@
                                     </li>
                                 </ul>
     
-                                <a class="btn btn-success" href="#">مشاهده رزومه</a>
+                                <a class="btn see-resume-btn" href="#">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                    مشاهده رزومه</a>
                                 <a class="download-cv-btn p-1" href="#">دریافت فایل رزومه</a>
                             </div>
     
@@ -187,7 +190,9 @@
                 {{-- Resume Section --}}
                 <div class="box mt-5 about-me">
                     <div class="box-header">
-                        <h5>درباره من</h5>
+                        <h5><i class="fa fa-user-circle" aria-hidden="true"></i>
+                             
+                            درباره من</h5>
                     </div>
                     <div class="box-content">
                         به برنامه نویسی بسیار علاقه مند هستم. با زبان php و فریمورک لاراول کار می‌کنم.
@@ -274,13 +279,114 @@
 
 
                 {{-- End Resume section --}}
+                
+                
+                {{--  Resume section --}}
+                
+                <div class="box mt-5">
+                    <div class="box-header">
+                        <h5>
+                            سوابق تحصیلی
+                        </h5>
+                    </div>
+                    <div class="box-content education p-0">
 
 
 
+                        <div class="field-item">
+                            <h6 class="field-title">مهندسی مواد</h6>
+                            <span class="company">شهید چمران اهواز </span>
+                            <span>از</span>
+                            <span>1390</span>
+                            <span>تا</span>
+                            <span>1394</span>
+                        </div>
+
+                        <div class="field-item">
+                            <h6 class="field-title">متالورژی جوش</h6>
+                            <span class="company">شهید چمران اهواز </span>
+                            <span>از</span>
+                            <span>1394</span>
+                            <span>تا</span>
+                            <span>1397</span>
+                        </div>
+ 
+                        <div class="add-education">
+
+                            <a class="add-education-btn" href="">+ ایجاد سابقه تحصیلی </a>
+                        </div>
+
+                    </div>
+                </div>               
+                {{-- End Resume section --}}
+                
+                
+                {{--  Resume section --}}
+                <div class="box mt-5">
+                    <div class="box-header">
+                        <h5>
+                            زبان ها
+                        </h5>
+                    </div>
+                    <div class="box-content languages p-0">
 
 
 
+                        <div class="language-item">
+                            <h6 class="language-title">انگلیسی:
 
+                                <span class="level">حرفه ای </span>
+
+                            </h6>
+                          
+                        </div>
+
+                       
+                        <div class="add-language">
+
+                            <a class="add-language-btn" href="">+ افزودن زبان </a>
+                        </div>
+
+                    </div>
+                </div>
+                
+                {{-- End Resume section --}}
+                
+                
+                
+                {{-- Resume section --}}
+
+                <div class="box mt-5">
+                    <div class="box-header">
+                        <h5>
+                            زبان ها
+                        </h5>
+                    </div>
+                    <div class="box-content languages p-0">
+
+
+
+                        <div class="language-item">
+                            <h6 class="language-title">انگلیسی:
+
+                                <span class="level">حرفه ای </span>
+
+                            </h6>
+                          
+                        </div>
+
+                       
+                        <div class="add-language">
+
+                            <a class="add-language-btn" href="">+ افزودن زبان </a>
+                        </div>
+
+                    </div>
+                </div>
+                
+
+
+                {{-- End Resume section --}}
 
 
 
@@ -296,7 +402,39 @@
             </div>
 
             <div class="col-lg-4">
-qwedwed
+                <div class="box">
+                    <div class="box-header">
+                        <h6 class="text-center">کیفیت رزومه‌ی شما</h6>
+
+                    </div>
+
+                    <div class="box-content">
+                        <div class="d-flex justify-content-center">
+
+                            <div class="progress-circle">
+                                <span class="completion-level"></span>
+                            </div>
+                        </div>
+
+                        <ul class="improvement-list mt-5">
+                           <li>
+                               <a href="#">
+                                مهارت های بیشتری اضافه کنید
+                               </a>
+                           </li>
+                           <li>
+                               <a href="#">
+                                به رزومه خود عکس آواتار اضافه کنید
+                               </a>
+                           </li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+                
+
             </div>
 
         </div>

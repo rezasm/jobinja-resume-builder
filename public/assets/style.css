@@ -36,6 +36,7 @@ body{
 
 .summary ul {
     list-style-type: none;
+    padding-right: 0;
 }
 .summary ul li {
     padding-top: 10px;
@@ -63,12 +64,19 @@ body{
     color: #f9a60b;
 }
 .download-cv-btn{
-    border: 1px solid #1111;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
     margin-right: 15px;
-    color: #000;
+    color: hsla(0,0%,53%,.95);
+    text-decoration: none;
+    
     
 }
 
+.box.summary{
+    border: 1px solid #d0d0d0;
+
+}
 .box{
 
     background-color: #fff;
@@ -77,14 +85,21 @@ body{
 }
 
 .box-header{
-    background-color: #dddddd;
+    background-color: #f9f9f9;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
+    border: 1px solid #d0d0d0;
+    transition: opacity 1s ease;
 }
 
 .box-content{
     padding: 10px;
+    border: 1px solid #d0d0d0;
+    cursor: pointer;
+}
+.box-content:hover{
+    border: 1px solid #3ab1e4;
 }
 
 .personal-info .item{
@@ -101,21 +116,55 @@ body{
     margin: 3px;
 }
 
-.job-item{
+.job-item,.field-item, .language-item{
     padding: 25px;
     border-bottom: 1px solid #d8d8d8;
 }
 
- .add-job-btn{
+ .add-job-btn, .add-education-btn, .add-language-btn{
      text-decoration: none;
      color: #000;
  }
 
- .add-job{
+ .add-job, .add-education, .add-language{
      background-color: #d8d8d8;
      padding: 10px;
      text-align: center;
      cursor: pointer;
  }
 
- 
+ .progress-circle{
+     height: 80px;
+     width: 80px;
+     border: 3px solid #d8d8d8;
+     background-color: #fff;
+     border-radius: 50%;
+     z-index: 11;
+     position: relative;
+     overflow: hidden;
+
+ }
+
+ .completion-level{
+     background-color: #1abc9c;
+     display: block;
+     width: 80px;
+     height: 50%;
+     z-index: 10;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     transition: all 1s ease;
+ }
+ .improvement-list li{
+ list-style: none;
+    margin-top: 10px;
+}
+
+.improvement-list li a{
+    text-decoration: none;
+}
+.see-resume-btn{
+    background-color: #17a689;
+    color: #fff;
+}
