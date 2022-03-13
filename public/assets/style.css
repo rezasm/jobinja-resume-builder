@@ -48,6 +48,8 @@ body{
    padding-top: 25px;
    padding-bottom: 25px;
    cursor: pointer;
+   border: 1px solid #d0d0d0;
+   border-radius: 5px;
 }
 
 .picture-icon i {
@@ -57,6 +59,7 @@ body{
 
 .upload-image-btn{
     border: 1px solid #e8e8e8;
+    background-color: #fff;
 }
 
 .fullname{
@@ -207,3 +210,71 @@ body{
     width: 80%;
 }
 
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    resize: vertical;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+input{
+    border-color: #d0d0d0;
+    -webkit-box-shadow: 0 -1px 0 1px #d0d0d0 inset;
+    box-shadow: inset 0 -1px 0 1px #d0d0d0;
+}
+
+.edit-box{
+    padding: 25px;
+    border: 1px solid #3ab1e4;
+    background-color: rgba(58,177,228,.05);
+}
+
+.text-left{
+    text-align: left;
+}
+
+.cancel-btn{
+    background-color: #fff;
+    color: hsla(0,0%,53%,.95);
+    -webkit-box-shadow: 0 -3px 0 0 #e0e0e0 inset;
+    box-shadow: inset 0 -3px 0 0 #e0e0e0;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+}
+
+.save-btn{
+         background-color: #1abc9c;
+        color: hsla(0,0%,100%,.95);
+        -webkit-box-shadow: 0 -3px 0 0 #12876f inset;
+        box-shadow: inset 0 -3px 0 0 #12876f;
+        height: 50px;
+        padding: 10px;
+
+        border: none;
+        box-shadow: none;
+        border-radius: 4px;
+   
+}
+
+input[type="radio"]{
+
+
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    vertical-align: middle;
+    background-color: #eee;
+    border: 1px solid #bbb;
+    -webkit-border-radius: 500px;
+    border-radius: 500px;
+
+}
+
+a{
+    color: #3ab1e4;
+
+}
