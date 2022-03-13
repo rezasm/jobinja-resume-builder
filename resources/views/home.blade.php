@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('assets/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
 </head>
 <body>
@@ -52,51 +53,57 @@
 
             <div class="col-lg-8">
                 {{-- Resume section --}}
-                <div class="box summary">
-                    <div class="row">
-                        <div class="col-2 text-center">
-                            <div class="picture-icon">
-                                <i class="fa fa-solid fa-user"></i>
-    
+                <div class="box">
+                    <div class="box-content summary row">
+                         
+                            <div class=" text-center avatar-col col-md-2">
+                                <div class="picture-icon">
+                                    <i class="fa fa-solid fa-user"></i>
+        
+                                </div>
+                                <a class="btn btn-light mt-1 w-100 upload-image-btn" href="#">آپلود عکس</a>
                             </div>
-                            <a class="btn btn-light mt-1 w-100 upload-image-btn" href="#">آپلود عکس</a>
-                        </div>
-                        <div class="col-10">
+                            <div class="col-md-10 summary-col position-relative">
+                                
+                                <div class="w-100 summary-list-wrapper">
+                                    <ul >
+                                        <li class="fullname">
+                                            رضا سلام محمره
+                                        </li>
+                                        <li>
+        
+                                            عنوان شغلی:برنامه نویس
+        
+        
+                                        </li>
+                                        <li>
+                                            وضعیت اشتغال:شاغل
+                                        </li>
+                                        <li>
+                                            آخرین شرکت:ایران خودرو زیبایی
+                                        </li>
+                                        <li>
+                                            آخرین مدرک تحصیلی:کارشناسی ارشد
+                                        </li>
+                                    </ul>
+        
+                                    <a class="btn see-resume-btn" href="#">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
     
-                            <div class=" w-100">
-                                <ul >
-                                    <li class="fullname">
-                                        رضا سلام محمره
-                                    </li>
-                                    <li>
+                                        مشاهده رزومه</a>
+                                    <a class="download-cv-btn p-1" href="#">دریافت فایل رزومه</a>
+                                </div>
+        
+        
+                                <button class=" position-absolute edit-btn">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
     
-                                        عنوان شغلی:برنامه نویس
-    
-    
-                                    </li>
-                                    <li>
-                                        وضعیت اشتغال:شاغل
-                                    </li>
-                                    <li>
-                                        آخرین شرکت:ایران خودرو زیبایی
-                                    </li>
-                                    <li>
-                                        آخرین مدرک تحصیلی:کارشناسی ارشد
-                                    </li>
-                                </ul>
-    
-                                <a class="btn see-resume-btn" href="#">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                    مشاهده رزومه</a>
-                                <a class="download-cv-btn p-1" href="#">دریافت فایل رزومه</a>
+                                    ویرایش</button>
                             </div>
     
-    
-    
-                        </div>
-
+                        
                     </div>
+
                 </div>
                 {{-- End Resume section --}}
                 
@@ -180,7 +187,11 @@
                             </div>
                         </div>
                   
-                  
+                        <button class=" position-absolute edit-btn">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                                ویرایش</button>
+
                     </div>
 
 
@@ -195,9 +206,19 @@
                             درباره من</h5>
                     </div>
                     <div class="box-content">
-                        به برنامه نویسی بسیار علاقه مند هستم. با زبان php و فریمورک لاراول کار می‌کنم.
-زبان انگلیسی را در سطح عالی آشنایی دارم.
-وبسایت شخصی: https://rezasm.ir
+                        <p class="about-text">
+                            به برنامه نویسی بسیار علاقه مند هستم. با زبان php و فریمورک لاراول کار می‌کنم.
+    زبان انگلیسی را در سطح عالی آشنایی دارم.
+    وبسایت شخصی: https://rezasm.ir
+
+                        </p>
+
+
+
+<button class="position-absolute edit-btn">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                                ویرایش</button>
 
                     </div>
                 </div>
@@ -232,6 +253,10 @@
                                 JQUERY
                             </a>
                         
+                            <button class=" position-absolute edit-btn">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                                ویرایش</button>
 
                         </div>
                     </div>
@@ -248,9 +273,6 @@
                         </h5>
                     </div>
                     <div class="box-content jobs p-0">
-
-
-
                         <div class="job-item">
                             <h6 class="job-title">تکنسین کامپیوتر</h6>
                             <span class="company">نورافزار </span>
@@ -272,7 +294,10 @@
 
                             <a class="add-job-btn" href="">+ ایجاد سابقه کاری </a>
                         </div>
+                        <button class=" position-absolute edit-btn">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
 
+                            ویرایش</button>
                     </div>
                 </div>
 
@@ -316,6 +341,12 @@
                             <a class="add-education-btn" href="">+ ایجاد سابقه تحصیلی </a>
                         </div>
 
+
+
+                        <button class="position-absolute edit-btn">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                            ویرایش</button>
                     </div>
                 </div>               
                 {{-- End Resume section --}}
@@ -346,48 +377,17 @@
 
                             <a class="add-language-btn" href="">+ افزودن زبان </a>
                         </div>
+                        <button class=" position-absolute edit-btn">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                                ویرایش</button>
 
                     </div>
                 </div>
                 
                 {{-- End Resume section --}}
                 
-                
-                
-                {{-- Resume section --}}
-
-                <div class="box mt-5">
-                    <div class="box-header">
-                        <h5>
-                            زبان ها
-                        </h5>
-                    </div>
-                    <div class="box-content languages p-0">
-
-
-
-                        <div class="language-item">
-                            <h6 class="language-title">انگلیسی:
-
-                                <span class="level">حرفه ای </span>
-
-                            </h6>
-                          
-                        </div>
-
-                       
-                        <div class="add-language">
-
-                            <a class="add-language-btn" href="">+ افزودن زبان </a>
-                        </div>
-
-                    </div>
-                </div>
-                
-
-
-                {{-- End Resume section --}}
-
+         
 
 
 
@@ -451,5 +451,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{{asset('assets/script.js')}}"></script>
 </body>
 </html>
