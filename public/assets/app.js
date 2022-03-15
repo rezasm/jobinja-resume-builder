@@ -1,4 +1,7 @@
-<div v-bind:style="EditdisplayStatus" class="col-md-10 position-relative summary-col edit-box">
+Vue.component("edit-summary", {
+    template: `
+    <div  
+      class="col-md-10 position-relative summary-col edit-box">
     <div class="row">
 
         <div class="col-sm-7 mt-5">
@@ -55,7 +58,7 @@
         
         
             <div class="col-sm-12 text-left">
-                <button v-on:click="CancelEdit" class="cancel-btn">انصراف</button>
+                <button class="cancel-btn">انصراف</button>
                 <button class="save-btn">ذخیره</button>
 
             </div>
@@ -70,3 +73,46 @@
 
 </div>
 
+
+    `,
+
+    data() {
+        return {
+            displayStatus: {
+                display: "block",
+            },
+            EditdisplayStatus: {
+                display: "none",
+            },
+            EditForm:false
+        };
+    },
+    methods:{
+        
+         
+
+    
+    }
+});
+
+var app = new Vue({
+    el: "#summary",
+
+    data: {
+        displayStatus: {
+            display: "block",
+        },
+        EditdisplayStatus: {
+            display: "none",
+        },
+
+        showEditBtn:false,
+        showSummary:true,
+        showEditForm:false
+    },
+    methods: {
+        
+
+   
+    },
+});

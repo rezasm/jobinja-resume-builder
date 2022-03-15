@@ -425,24 +425,6 @@
 
     <script>
 
-      var app =   new Vue({
-
-         el:'#summary'
-
-         data:{
-
-         }
-            methods(){
-                showEditForm(){
-                    alert('hello');
-                }
-
-
-            }
-
-
-
-        });
 
 
 
@@ -455,6 +437,7 @@
 
 
     <script src="{{ asset('assets/script.js') }}"></script>
+    <script src="{{ asset('assets/app.js') }}"></script>
 </body>
 
 </html>

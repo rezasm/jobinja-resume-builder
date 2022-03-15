@@ -1,5 +1,7 @@
 <div class="box">
-    <div id="summary" class="box-content summary row">
+    <div id="summary" class="box-content summary row" 
+    v-on:mouseenter="showEditBtn=!showEditBtn" 
+    v-on:mouseleave="showEditBtn=!showEditBtn" >
 
         <div class=" text-center avatar-col col-md-2">
             <div class="picture-icon">
@@ -11,7 +13,9 @@
             </label>
             <input style="display:none;" type="file" name="avatar" id="UploadAvatar">
         </div>
-        <div class="col-md-10 summary-col position-relative">
+
+        <div  v-show="showSummary" v-on:click="showSummary=false" v-on="" 
+        class="col-md-10 summary-col position-relative">
 
             <div class="w-100 summary-list-wrapper">
                 <ul>
@@ -43,13 +47,20 @@
             </div>
 
 
-            <button v-on:click="showEditForm" class=" position-absolute edit-btn">
+            <button v-show="showEditBtn"  v-on:click="showEditForm=true" 
+            class=" position-absolute edit-btn">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
 
                 ویرایش</button>
         </div>
 
-        {{-- @include('edit-partials.__edit-summary') --}}
+        <edit-summary v-show="showEditForm"></edit-summary>
+
+
+        {{-- <transition name="fade">
+            @include('edit-partials.__edit-summary')
+
+        </transition> --}}
 
 
     </div>
