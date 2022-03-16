@@ -353,21 +353,7 @@
 
                     </div>
                 </div>
-
                 {{-- End Resume section --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
 
             <div class="col-lg-4">

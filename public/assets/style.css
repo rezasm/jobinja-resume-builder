@@ -30,6 +30,8 @@ body{
 
 .summary{
     background-color: #fff;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
  
 
 }
@@ -60,6 +62,7 @@ body{
 .upload-image-btn{
     border: 1px solid #e8e8e8;
     background-color: #fff;
+    margin-bottom: 10px;
 }
 
 .fullname{
@@ -180,14 +183,14 @@ body{
 }
 
 .summary-col{
-    border: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
     cursor: pointer;
-    transition: all 1s ease
+    transition: all 1s ease;
+    border-top:  1px solid #d0d0d0;
+    
 }
-.summary-col:hover{
+ 
 
-    border: 1px solid #3ab1e4;
-}
 
 .summary-list-wrapper{
     padding: 20px;
@@ -228,7 +231,7 @@ input{
 }
 
 .edit-box{
-    padding: 25px;
+    /* padding: 25px; */
     border: 1px solid #3ab1e4;
     background-color: rgba(58,177,228,.05);
 }

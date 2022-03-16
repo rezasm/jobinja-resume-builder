@@ -57,8 +57,8 @@ Vue.component("edit-summary", {
             </div>
         
         
-            <div class="col-sm-12 text-left">
-                <button class="cancel-btn">انصراف</button>
+            <div class="col-sm-12 text-left p-5">
+                <button v-on:click="$emit('cancel')" class="cancel-btn">انصراف</button>
                 <button class="save-btn">ذخیره</button>
 
             </div>
@@ -107,7 +107,7 @@ var app = new Vue({
         },
 
         showEditBtn:false,
-        showSummary:true,
+        
         showEditForm:false
     },
     methods: {
