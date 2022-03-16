@@ -15,7 +15,7 @@
                 <input style="display:none;" type="file" name="avatar" id="UploadAvatar">
             </div>
 
-            <div v-show="!showEditForm" class="col-md-10 summary-col position-relative">
+            <div v-on:click="showEditForm=true" v-show="!showEditForm" class="col-md-10 summary-col position-relative">
 
                 <div class="w-100 summary-list-wrapper">
                     <ul>
