@@ -11,7 +11,6 @@
         integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
 </head>
 
@@ -421,9 +420,10 @@
 
 
 
+<script src="{{ asset('js/app.js') }}"></script>        
 
-    <script src="{{ asset('assets/script.js') }}"></script>
-    <script src="{{ asset('assets/app.js') }}"></script>
+    {{-- <script src="{{ asset('assets/script.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/app.js') }}"></script> --}}
 </body>
 
 </html>

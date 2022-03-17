@@ -53,8 +53,10 @@
                     ویرایش</button>
             </div>
 
+            {{-- <edit-summary v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary> --}}
             <edit-summary v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary>
-
+ 
+            {{-- <test-component></test-component> --}}
  
 
 
