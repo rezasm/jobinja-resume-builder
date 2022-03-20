@@ -1,22 +1,21 @@
 import { createApp } from "vue";
 import EditSummary from "./components/EditSummary.vue";
-import TestComponent from "./components/TestComponent.vue";
+import SummaryBox from "./components/SummaryBox";
+import PersonalInfo from "./components/PersonalInfo";
 
 const app = createApp({
-    data() {
-        return {
-            showEditBtn: false,
+    
+    data(){
+        return{
 
-            showEditForm: false,
         }
-    },
-
-    methods: {},
-
+    }
 
 });
 
+app.component("SummaryBox",SummaryBox);
 app.component("EditSummary",EditSummary);
-app.component("TestComponent",TestComponent);
-app.mount('#summary');
+app.component("PersonalInfo",PersonalInfo);
+app.mount('#root');
+
   

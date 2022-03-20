@@ -1,4 +1,5 @@
-<div id="summary" class="box">
+<template>
+   <div id="summary" class="box">
     <div class="box-content summary" v-on:mouseenter="showEditBtn=!showEditBtn"
         v-on:mouseleave="showEditBtn=!showEditBtn">
         <div class="row">
@@ -53,8 +54,7 @@
                     ویرایش</button>
             </div>
 
-            {{-- <edit-summary v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary> --}}
-            <edit-summary v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary>
+             <edit-summary v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary>
  
   
 
@@ -62,3 +62,24 @@
         </div>
     </div>
 </div>
+
+</template>
+
+<script>
+export default {
+    
+    data() {
+        return {
+            showEditBtn: false,
+
+            showEditForm: false,
+        }
+    },
+
+    methods: {},
+
+
+
+
+}
+</script>
