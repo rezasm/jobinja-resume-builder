@@ -17202,6 +17202,20 @@ const getGlobalThis = () => {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditPersonalInfo.vue?vue&type=script&lang=js":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditPersonalInfo.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditSummary.vue?vue&type=script&lang=js":
 /*!*****************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditSummary.vue?vue&type=script&lang=js ***!
@@ -17239,7 +17253,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var _EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPersonalInfo.vue */ "./resources/js/components/EditPersonalInfo.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    EditPersonalInfo: _EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      showEditBtn: false,
+      showEditForm: false
+    };
+  }
+});
 
 /***/ }),
 
@@ -17262,6 +17288,48 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {}
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditPersonalInfo.vue?vue&type=template&id=4d8498a3":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditPersonalInfo.vue?vue&type=template&id=4d8498a3 ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "box-content edit-box"
+};
+var _hoisted_2 = {
+  "class": "row"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">آدرس ایمیل</h5><input type=\"text\" name=\"email\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">استان محل سکونت</h5><input type=\"text\" name=\"province\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">وضعیت تعهل</h5><input type=\"text\" name=\"marrage\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">جنسیت</h5><input type=\"text\" name=\"gender\" class=\"input-field\"></div></div><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">شماره موبایل</h5><input type=\"text\" name=\"phone\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">آدرس محل سکونت</h5><input type=\"text\" name=\"city\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">سال تولد</h5><input type=\"text\" name=\"birth_year\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">وضعیت خدمت سربازی</h5><input type=\"text\" name=\"military_service\" class=\"input-field\"></div></div>", 2);
+
+var _hoisted_5 = {
+  "class": "col-sm-12 text-left p-5"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "save-btn"
+}, "ذخیره", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.$emit('cancel');
+    }),
+    "class": "cancel-btn"
+  }, "انصراف"), _hoisted_6])])]);
+}
 
 /***/ }),
 
@@ -17323,11 +17391,53 @@ var _hoisted_1 = {
   "class": "box mt-5 personal-info"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"box-header\"><h5><i class=\"fa fa-solid fa-user\"></i> اطلاعات فردی </h5></div><div class=\"box-content\"><div class=\"row\"><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\"> آدرس ایمیل </h5><span class=\"item-value\"> reza.salam90@gmail.com </span></div><div class=\"item\"><h5 class=\"item-title\"> استان محل سکونت </h5><span class=\"item-value\"> خوزستان </span></div><div class=\"item\"><h5 class=\"item-title\"> وضعیت تعهل </h5><span class=\"item-value\"> مجرد </span></div><div class=\"item\"><h5 class=\"item-title\"> جنسیت </h5><span class=\"item-value\"> مرد </span></div></div><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\"> شماره موبایل </h5><span class=\"item-value\"> 09371234567 </span></div><div class=\"item\"><h5 class=\"item-title\"> آدرس محل سکونت </h5><span class=\"item-value\"> اهواز </span></div><div class=\"item\"><h5 class=\"item-title\"> سال تولد </h5><span class=\"item-value\"> 1372 </span></div><div class=\"item\"><h5 class=\"item-title\"> وضعیت خدمت سربازی </h5><span class=\"item-value\"> پایان خدمت </span></div></div></div><button class=\"position-absolute edit-btn\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i> ویرایش</button></div>", 2);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "box-header"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-solid fa-user"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" اطلاعات فردی ")])], -1
+/* HOISTED */
+);
 
-var _hoisted_4 = [_hoisted_2];
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">آدرس ایمیل</h5><span class=\"item-value\"> reza.salam90@gmail.com </span></div><div class=\"item\"><h5 class=\"item-title\">استان محل سکونت</h5><span class=\"item-value\"> خوزستان </span></div><div class=\"item\"><h5 class=\"item-title\">وضعیت تعهل</h5><span class=\"item-value\"> مجرد </span></div><div class=\"item\"><h5 class=\"item-title\">جنسیت</h5><span class=\"item-value\"> مرد </span></div></div><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">شماره موبایل</h5><span class=\"item-value\"> 09371234567 </span></div><div class=\"item\"><h5 class=\"item-title\">آدرس محل سکونت</h5><span class=\"item-value\"> اهواز </span></div><div class=\"item\"><h5 class=\"item-title\">سال تولد</h5><span class=\"item-value\"> 1372 </span></div><div class=\"item\"><h5 class=\"item-title\">وضعیت خدمت سربازی</h5><span class=\"item-value\"> پایان خدمت </span></div></div></div>", 1);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-pencil",
+  "aria-hidden": "true"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش ");
+
+var _hoisted_6 = [_hoisted_4, _hoisted_5];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_4);
+  var _component_edit_personal_info = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-personal-info");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_personal_info, {
+    onCancel: _cache[0] || (_cache[0] = function ($event) {
+      return $data.showEditForm = false;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "box-content",
+    onMouseenter: _cache[2] || (_cache[2] = function ($event) {
+      return $data.showEditBtn = !$data.showEditBtn;
+    }),
+    onMouseleave: _cache[3] || (_cache[3] = function ($event) {
+      return $data.showEditBtn = !$data.showEditBtn;
+    })
+  }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $data.showEditForm = true;
+    }),
+    "class": "position-absolute edit-btn"
+  }, _hoisted_6, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])], 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.showEditForm]])]);
 }
 
 /***/ }),
@@ -17415,6 +17525,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/EditSummary.vue */ "./resources/js/components/EditSummary.vue");
 /* harmony import */ var _components_SummaryBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/SummaryBox */ "./resources/js/components/SummaryBox.vue");
 /* harmony import */ var _components_PersonalInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/PersonalInfo */ "./resources/js/components/PersonalInfo.vue");
+/* harmony import */ var _components_EditPersonalInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/EditPersonalInfo */ "./resources/js/components/EditPersonalInfo.vue");
+
 
 
 
@@ -17427,6 +17539,7 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
 app.component("SummaryBox", _components_SummaryBox__WEBPACK_IMPORTED_MODULE_2__["default"]);
 app.component("EditSummary", _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 app.component("PersonalInfo", _components_PersonalInfo__WEBPACK_IMPORTED_MODULE_3__["default"]);
+app.component("EditPersonalInfo", _components_EditPersonalInfo__WEBPACK_IMPORTED_MODULE_4__["default"]);
 app.mount('#root');
 
 /***/ }),
@@ -17461,6 +17574,33 @@ exports["default"] = (sfc, props) => {
     return target;
 };
 
+
+/***/ }),
+
+/***/ "./resources/js/components/EditPersonalInfo.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/EditPersonalInfo.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditPersonalInfo_vue_vue_type_template_id_4d8498a3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPersonalInfo.vue?vue&type=template&id=4d8498a3 */ "./resources/js/components/EditPersonalInfo.vue?vue&type=template&id=4d8498a3");
+/* harmony import */ var _EditPersonalInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPersonalInfo.vue?vue&type=script&lang=js */ "./resources/js/components/EditPersonalInfo.vue?vue&type=script&lang=js");
+/* harmony import */ var C_laragon_www_resume_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_resume_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EditPersonalInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EditPersonalInfo_vue_vue_type_template_id_4d8498a3__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/EditPersonalInfo.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
 /***/ }),
 
@@ -17545,6 +17685,21 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/EditPersonalInfo.vue?vue&type=script&lang=js":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/EditPersonalInfo.vue?vue&type=script&lang=js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPersonalInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPersonalInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditPersonalInfo.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditPersonalInfo.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/EditSummary.vue?vue&type=script&lang=js":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/EditSummary.vue?vue&type=script&lang=js ***!
@@ -17587,6 +17742,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SummaryBox_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SummaryBox.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/SummaryBox.vue?vue&type=script&lang=js");
  
+
+/***/ }),
+
+/***/ "./resources/js/components/EditPersonalInfo.vue?vue&type=template&id=4d8498a3":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/EditPersonalInfo.vue?vue&type=template&id=4d8498a3 ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPersonalInfo_vue_vue_type_template_id_4d8498a3__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPersonalInfo_vue_vue_type_template_id_4d8498a3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditPersonalInfo.vue?vue&type=template&id=4d8498a3 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditPersonalInfo.vue?vue&type=template&id=4d8498a3");
+
 
 /***/ }),
 
