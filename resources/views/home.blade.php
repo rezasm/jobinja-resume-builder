@@ -65,69 +65,14 @@
                 {{-- End Resume section --}}
 
                 {{-- Resume Section --}}
-                <div class="box mt-5 about-me">
-                    <div class="box-header">
-                        <h5><i class="fa fa-user-circle" aria-hidden="true"></i>
-
-                            درباره من</h5>
-                    </div>
-                    <div class="box-content">
-                        <p class="about-text">
-                            به برنامه نویسی بسیار علاقه مند هستم. با زبان php و فریمورک لاراول کار می‌کنم.
-                            زبان انگلیسی را در سطح عالی آشنایی دارم.
-                            وبسایت شخصی: https://rezasm.ir
-
-                        </p>
-
-
-
-                        <button class="position-absolute edit-btn">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-
-                            ویرایش</button>
-
-                    </div>
-                </div>
+                <about-me></about-me>
 
 
                 {{-- End Resume section --}}
 
 
                 {{-- Resume Section --}}
-                <div class="box mt-5 skills">
-                    <div class="box-header">
-                        <h5>
-                            مهارت های حرفه ای
-                        </h5>
-                    </div>
-
-                    <div class="box-content">
-                        <div class="col-12 mt-5 mb-5">
-                            <a class="skill-item" href="#">
-                                PHP
-                            </a>
-                            <a class="skill-item" href="#">
-                                LARAVEL
-                            </a>
-                            <a class="skill-item" href="#">
-                                HTML
-                            </a>
-                            <a class="skill-item" href="#">
-                                CSS
-                            </a>
-                            <a class="skill-item" href="#">
-                                JQUERY
-                            </a>
-
-                            <button class=" position-absolute edit-btn">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-
-                                ویرایش</button>
-
-                        </div>
-                    </div>
-                </div>
-
+                <my-skills></my-skills>
                 {{-- End Resume section --}}
 
                 {{-- Resume section --}}
