@@ -134,9 +134,13 @@ body{
     border-bottom: 1px solid #d8d8d8;
 }
 
- .add-job-btn, .add-education-btn, .add-language-btn{
+    .add-education-btn, .add-language-btn{
      text-decoration: none;
      color: #000;
+ }
+ .add-job-btn{
+     background: 0 0;
+     border: none;
  }
 
  .add-job, .add-education, .add-language{
@@ -328,4 +332,14 @@ a{
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
+  }
+
+
+  .delete-btn{
+
+    background: 0 0;
+    border: none;
+    color: #3ab1e4;
+    font-weight: 500;
+
   }

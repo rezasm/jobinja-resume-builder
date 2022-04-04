@@ -7,6 +7,10 @@ import AboutMe from "./components/AboutMe.vue";
 import EditAboutMe from "./components/EditAboutMe.vue";
 import MySkills from "./components/MySkills.vue";
 import EditMySkills from "./components/EditMySkills.vue";
+import LastJobs from "./components/LastJobs.vue";
+import JobItem from "./components/JobItem.vue";
+import EditJobItem from "./components/EditJobItem.vue";
+import NewJobItem from "./components/NewJobItem.vue";
 
 const app = createApp({
     
@@ -26,6 +30,11 @@ app.component("AboutMe",AboutMe);
 app.component("EditAboutMe",EditAboutMe);
 app.component("MySkills",MySkills);
 app.component("EditMySkills",EditMySkills);
+app.component("LastJobs",LastJobs);
+app.component("JobItem",JobItem);
+app.component("EditJobItem",EditJobItem);
+app.component("NewJobItem",NewJobItem);
+
 app.mount('#root');
 
   

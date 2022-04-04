@@ -1,0 +1,20 @@
+[
+    {
+        "title":"تکنسین کامپیوتر",
+        "company":" نورافزار  ",
+        "from":"1397",
+        "to":"1399",
+        "description":"",
+        "working":false
+
+    },
+    {
+        "title":"برنامه نویس",
+        "company":" ایران خودرو زیبایی  ",
+        "from":"1399",
+        "to":"1401",
+        "description":"",
+        "working":true
+
+    }
+]

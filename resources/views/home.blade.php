@@ -77,52 +77,7 @@
 
                 {{-- Resume section --}}
 
-                <div class="box mt-5">
-                    <div class="box-header">
-                        <h5>
-                            سوابق شغلی
-                        </h5>
-                    </div>
-                    <div class=" jobs p-0">
-                        <div class="job-item box-content">
-                            <h6 class="job-title">تکنسین کامپیوتر</h6>
-                            <span class="company">نورافزار </span>
-                            <span>از</span>
-                            <span>1397</span>
-                            <span>تا</span>
-                            <span>1399</span>
-
-
-                            <button class=" position-absolute edit-btn">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-
-                                ویرایش</button>
-                        </div>
-
-                        <div class="job-item box-content">
-                            <h6 class="job-title">برنامه نویس</h6>
-                            <span class="company">نمایندگی ایران خودرو زیبایی </span>
-                            <span>از</span>
-                            <span>1399</span>
-                            <span>تا</span>
-                            <span>حالا</span>
-
-
-                            <button class=" position-absolute edit-btn">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-
-                                ویرایش</button>
-                        </div>
-                        <div class="add-job">
-
-                            <a class="add-job-btn" href="">+ ایجاد سابقه کاری </a>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
+                <last-jobs></last-jobs>
                 {{-- End Resume section --}}
 
 
