@@ -6,8 +6,10 @@
                             درباره من</h5>
                     </div>
                     <div v-on:mouseenter="showEditBtn=true" v-on:mouseleave="showEditBtn=false"
-                    v-show="!showEditForm"
-                     class="box-content">
+                    v-show="!showEditForm" v-on:click="showEditForm=true" 
+                     class="box-content"
+                     
+                     >
                         <p class="about-text">
                             به برنامه نویسی بسیار علاقه مند هستم. با زبان php و فریمورک لاراول کار می‌کنم.
                             زبان انگلیسی را در سطح عالی آشنایی دارم.

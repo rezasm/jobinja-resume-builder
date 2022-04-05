@@ -66,8 +66,6 @@
 
                 {{-- Resume Section --}}
                 <about-me></about-me>
-
-
                 {{-- End Resume section --}}
 
 
@@ -83,51 +81,7 @@
 
                 {{-- Resume section --}}
 
-                <div class="box mt-5">
-                    <div class="box-header">
-                        <h5>
-                            سوابق تحصیلی
-                        </h5>
-                    </div>
-                    <div class=" education p-0">
-
-
-                        <div class="field-item box-content">
-                            <h6 class="field-title">مهندسی مواد</h6>
-                            <span class="company">شهید چمران اهواز </span>
-                            <span>از</span>
-                            <span>1390</span>
-                            <span>تا</span>
-                            <span>1394</span>
-                            <button class=" position-absolute edit-btn">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-
-                                ویرایش</button>
-                        </div>
-
-                        <div class="field-item box-content">
-                            <h6 class="field-title">متالورژی جوش</h6>
-                            <span class="company">شهید چمران اهواز </span>
-                            <span>از</span>
-                            <span>1394</span>
-                            <span>تا</span>
-                            <span>1397</span>
-
-                            <button class=" position-absolute edit-btn">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-
-                                ویرایش</button>
-                        </div>
-
-                        <div class="add-education">
-
-                            <a class="add-education-btn" href="">+ ایجاد سابقه تحصیلی </a>
-                        </div>
-
-
-
-                    </div>
-                </div>
+               <education-history></education-history>
                 {{-- End Resume section --}}
 
 

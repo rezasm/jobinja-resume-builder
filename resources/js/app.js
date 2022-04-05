@@ -11,6 +11,9 @@ import LastJobs from "./components/LastJobs.vue";
 import JobItem from "./components/JobItem.vue";
 import EditJobItem from "./components/EditJobItem.vue";
 import NewJobItem from "./components/NewJobItem.vue";
+import EducationHistory from "./components/EducationHistory.vue";
+import EducationItem from "./components/EducationItem.vue";
+import EditEducationItem from "./components/EditEducationItem.vue";
 
 const app = createApp({
     
@@ -34,6 +37,9 @@ app.component("LastJobs",LastJobs);
 app.component("JobItem",JobItem);
 app.component("EditJobItem",EditJobItem);
 app.component("NewJobItem",NewJobItem);
+app.component("EducationHistory",EducationHistory);
+app.component("EducationItem",EducationItem);
+app.component("EditEducationItem",EditEducationItem);
 
 app.mount('#root');
 

@@ -8,7 +8,8 @@
                     </div>
 
                     <div v-show="!showEditForm" 
-                    class="box-content" v-on:mouseenter="showEditBtn=true"
+                    class="box-content" v-on:click="showEditForm=true" 
+                    v-on:mouseenter="showEditBtn=true"
                     v-on:mouseleave="showEditBtn=false"
                     >
                         <div class="col-12 mt-5 mb-5">

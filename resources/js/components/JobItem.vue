@@ -2,7 +2,7 @@
   
 
 
-                        <div v-show="!showEditForm"
+                        <div v-show="!showEditForm" v-on:click="showEditForm=true" 
                         v-on:mouseenter="this.showEditBtn=true" v-on:mouseleave="this.showEditBtn=false" 
                         class="job-item box-content">
                             <h6 class="job-title">{{job.title}} </h6>

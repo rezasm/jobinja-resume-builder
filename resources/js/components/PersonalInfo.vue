@@ -10,7 +10,7 @@
         </div>
             <edit-personal-info v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-personal-info>
 
-        <div v-show="!showEditForm" class="box-content"
+        <div v-show="!showEditForm" class="box-content" v-on:click="showEditForm=true" 
                v-on:mouseenter="showEditBtn=!showEditBtn"
           v-on:mouseleave="showEditBtn=!showEditBtn"
               >
