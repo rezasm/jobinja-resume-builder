@@ -15,6 +15,10 @@ import EducationHistory from "./components/EducationHistory.vue";
 import EducationItem from "./components/EducationItem.vue";
 import EditEducationItem from "./components/EditEducationItem.vue";
 import NewEducation from "./components/NewEducation.vue";
+import MyLanguages from "./components/MyLanguages.vue";
+import LanguageItem from "./components/LanguageItem.vue";
+import EditLanguageItem from "./components/EditLanguageItem.vue";
+import NewLanguageItem from "./components/NewLanguageItem.vue";
 
 const app = createApp({
     
@@ -42,6 +46,10 @@ app.component("EducationHistory",EducationHistory);
 app.component("EducationItem",EducationItem);
 app.component("EditEducationItem",EditEducationItem);
 app.component("NewEducation",NewEducation);
+app.component("MyLanguages",MyLanguages);
+app.component("LanguageItem",LanguageItem);
+app.component("EditLanguageItem",EditLanguageItem);
+app.component("NewLanguageItem",NewLanguageItem);
 
 app.mount('#root');
 

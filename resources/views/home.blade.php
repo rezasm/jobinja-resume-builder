@@ -80,43 +80,12 @@
 
 
                 {{-- Resume section --}}
-
                <education-history></education-history>
                 {{-- End Resume section --}}
 
 
                 {{-- Resume section --}}
-                <div class="box mt-5">
-                    <div class="box-header">
-                        <h5>
-                            زبان ها
-                        </h5>
-                    </div>
-                    <div class="box-content languages p-0">
-
-
-
-                        <div class="language-item">
-                            <h6 class="language-title">انگلیسی:
-
-                                <span class="level">حرفه ای </span>
-
-                            </h6>
-
-                        </div>
-
-
-                        <div class="add-language">
-
-                            <a class="add-language-btn" href="">+ افزودن زبان </a>
-                        </div>
-                        <button class=" position-absolute edit-btn">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-
-                            ویرایش</button>
-
-                    </div>
-                </div>
+                <my-languages></my-languages>
                 {{-- End Resume section --}}
             </div>
 
