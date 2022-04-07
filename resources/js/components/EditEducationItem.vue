@@ -11,6 +11,20 @@
                 <input name="university" class="input-field" type="text" :value="education.company" />
             </div>
 
+            <div>مقطع تحصیلی</div>
+            <div class="col-lg-12">
+                <span class="mt-5" v-for="degree in degrees">
+                <label for="">{{degree.title}}</label>
+                <input type="radio" name="degree" value="{{degree.value}}">
+                    
+                </span> 
+
+
+
+
+                 </div>
+            
+
                             <div>تاریخ شروع و پایان تحصیل</div>
             <div class="form-group row">
 
@@ -36,7 +50,7 @@
 
             <div class="col-lg-10 mt-1">
                 <label for="">توضیحات</label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <textarea name="description" id="" cols="30" rows="5"></textarea>
             </div>
  
 
@@ -61,11 +75,13 @@
 
 
 <script>
+
+import degreesArray from '../degree.json';
 export default {
     props:['education'],
     data() {
         return {
-            
+            degrees:degreesArray
         }
     },
 }

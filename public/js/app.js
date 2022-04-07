@@ -17247,10 +17247,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _degree_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../degree.json */ "./resources/js/degree.json");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['education'],
   data: function data() {
-    return {};
+    return {
+      degrees: _degree_json__WEBPACK_IMPORTED_MODULE_0__
+    };
   }
 });
 
@@ -17703,23 +17707,45 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_8 = ["value"];
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div>تاریخ شروع و پایان تحصیل</div><div class=\"form-group row\"><label class=\"col-lg-2 col-form-label\" for=\"\"> از سال</label><div class=\"col-lg-4\"><input type=\"text\" class=\"input-field\"></div></div><div class=\"form-group row mt-1\"><label class=\"col-lg-2 col-form-label\" for=\"\"> تا سال</label><div class=\"col-lg-4\"><input type=\"text\" class=\"input-field\"></div></div><div class=\"col-lg-10 mt-1\"><label for=\"\">توضیحات</label><textarea name=\"description\" id=\"\" cols=\"30\" rows=\"10\"></textarea></div>", 4);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "مقطع تحصیلی", -1
+/* HOISTED */
+);
 
-var _hoisted_13 = {
+var _hoisted_10 = {
+  "class": "col-lg-12"
+};
+var _hoisted_11 = {
+  "class": "mt-5"
+};
+var _hoisted_12 = {
+  "for": ""
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "radio",
+  name: "degree",
+  value: "{{degree.value}}"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div>تاریخ شروع و پایان تحصیل</div><div class=\"form-group row\"><label class=\"col-lg-2 col-form-label\" for=\"\"> از سال</label><div class=\"col-lg-4\"><input type=\"text\" class=\"input-field\"></div></div><div class=\"form-group row mt-1\"><label class=\"col-lg-2 col-form-label\" for=\"\"> تا سال</label><div class=\"col-lg-4\"><input type=\"text\" class=\"input-field\"></div></div><div class=\"col-lg-10 mt-1\"><label for=\"\">توضیحات</label><textarea name=\"description\" id=\"\" cols=\"30\" rows=\"5\"></textarea></div>", 4);
+
+var _hoisted_18 = {
   "class": "col-sm-12 text-left p-5"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-remove"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" حذف ");
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" حذف ");
 
-var _hoisted_16 = [_hoisted_14, _hoisted_15];
+var _hoisted_21 = [_hoisted_19, _hoisted_20];
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "save-btn m-1"
 }, "ذخیره", -1
 /* HOISTED */
@@ -17740,17 +17766,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     value: $props.education.company
   }, null, 8
   /* PROPS */
-  , _hoisted_8)]), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  , _hoisted_8)]), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.degrees, function (degree) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(degree.title), 1
+    /* TEXT */
+    ), _hoisted_13]);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))]), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "delete-btn",
     onClick: _cache[0] || (_cache[0] = function () {
       return _ctx.removeItem && _ctx.removeItem.apply(_ctx, arguments);
     })
-  }, _hoisted_16), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, _hoisted_21), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return _ctx.$emit('cancel');
     }),
     "class": "cancel-btn m-1"
-  }, " انصراف "), _hoisted_17])])]);
+  }, " انصراف "), _hoisted_22])])]);
 }
 
 /***/ }),
@@ -19913,6 +19945,16 @@ function compileToFunction(template, options) {
 
 
 
+
+/***/ }),
+
+/***/ "./resources/js/degree.json":
+/*!**********************************!*\
+  !*** ./resources/js/degree.json ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = JSON.parse('[{"value":"diploma","title":"دیپلم"},{"value":"associate","title":"کاردانی"},{"value":"bachelor","title":"کارشناسی"},{"value":"master","title":"کارشناسی ارشد"},{"value":"doctoral","title":"دکترا و بالاتر"},{"value":"other","title":"دیگر"}]');
 
 /***/ }),
 

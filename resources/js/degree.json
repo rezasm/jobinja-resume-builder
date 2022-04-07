@@ -1,0 +1,26 @@
+[
+    {
+        "value":"diploma",
+        "title":"دیپلم"
+    },
+    {
+        "value":"associate",
+        "title":"کاردانی"
+    },
+    {
+        "value":"bachelor",
+        "title":"کارشناسی"
+    },
+    {
+        "value":"master",
+        "title":"کارشناسی ارشد"
+    },
+    {
+        "value":"doctoral",
+        "title":"دکترا و بالاتر"
+    },
+    {
+        "value":"other",
+        "title":"دیگر"
+    }
+]
