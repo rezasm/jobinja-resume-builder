@@ -3,6 +3,9 @@
       <div class="field-item box-content"
       v-on:mouseenter="showEditBtn=true"
       v-on:mouseleave="showEditBtn=false"
+      v-on:click="showEditForm=true"
+
+      v-show="!showEditForm"
       >
                             <h6 class="field-title">{{education.field}}</h6>
                             <span class="university">{{education.university}}</span>
@@ -19,7 +22,8 @@
                                 ویرایش</button>
                         </div>    
                         
-                        <edit-education-item :education="education" v-show="showEditForm"></edit-education-item>
+                        <edit-education-item v-on:cancel="showEditForm=false" :education="education" v-show="showEditForm"></edit-education-item>
+                        
 
 </template>
 
@@ -31,7 +35,7 @@ export default {
     data(){
         return{
             showEditBtn:false,
-            showEditForm:true,
+            showEditForm:false,
         }
     }
 }

@@ -14,6 +14,7 @@ import NewJobItem from "./components/NewJobItem.vue";
 import EducationHistory from "./components/EducationHistory.vue";
 import EducationItem from "./components/EducationItem.vue";
 import EditEducationItem from "./components/EditEducationItem.vue";
+import NewEducation from "./components/NewEducation.vue";
 
 const app = createApp({
     
@@ -40,6 +41,7 @@ app.component("NewJobItem",NewJobItem);
 app.component("EducationHistory",EducationHistory);
 app.component("EducationItem",EducationItem);
 app.component("EditEducationItem",EditEducationItem);
+app.component("NewEducation",NewEducation);
 
 app.mount('#root');
 

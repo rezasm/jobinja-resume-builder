@@ -134,11 +134,11 @@ body{
     border-bottom: 1px solid #d8d8d8;
 }
 
-    .add-education-btn, .add-language-btn{
+     .add-language-btn{
      text-decoration: none;
      color: #000;
  }
- .add-job-btn{
+ .add-job-btn,.add-education-btn{
      background: 0 0;
      border: none;
  }

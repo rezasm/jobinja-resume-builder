@@ -12,8 +12,15 @@
 
                         <education-item v-for="education in educationItems" :education="education"></education-item>
 
+
+
+                        <new-education  v-on:closeForm="showNewEducationForm=false" v-show="showNewEducationForm"></new-education>
+
                         <div class="add-education">
-                            <button class="add-education-btn">+ ایجاد سابقه تحصیلی </button>
+                            <button 
+                            v-on:click="showNewEducationForm=true" 
+                           
+                            class="add-education-btn">+ ایجاد سابقه تحصیلی </button>
                         </div>
 
 
@@ -29,6 +36,7 @@ export default {
     data() {
         return {
             educationItems:educationArray,
+            showNewEducationForm:false
         }
     },
 }
