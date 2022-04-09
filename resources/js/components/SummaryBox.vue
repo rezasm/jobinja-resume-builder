@@ -66,8 +66,9 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-    props:['getDataRoute'],
+    
     data() {
         return {
             showEditBtn: false,
@@ -79,7 +80,7 @@ export default {
     methods: {},
 
     mounted() {
-         axios.get(this.getDataRoute).then(response => console.log(response));
+         axios.get('/get-person-data').then(response => console.log(response.data));
     },
 
 

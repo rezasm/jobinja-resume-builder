@@ -9,7 +9,7 @@ class PersonController extends Controller
     public function getData(){
 
 
-        return ['msg' => 'hello vue from laravel'];
+        return ['hello vue from laravel'];
 
 
 

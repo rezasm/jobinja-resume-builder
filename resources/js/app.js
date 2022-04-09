@@ -1,4 +1,7 @@
 import { createApp } from "vue";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 import EditSummary from "./components/EditSummary.vue";
 import SummaryBox from "./components/SummaryBox.vue";
 import PersonalInfo from "./components/PersonalInfo.vue";
@@ -19,8 +22,6 @@ import MyLanguages from "./components/MyLanguages.vue";
 import LanguageItem from "./components/LanguageItem.vue";
 import EditLanguageItem from "./components/EditLanguageItem.vue";
 import NewLanguageItem from "./components/NewLanguageItem.vue";
-import axios from 'axios';
-import VueAxios from 'vue-axios';
 
 
 
@@ -33,7 +34,7 @@ const app = createApp({
     }
 
 });
-app.use(VueAxios,axios);
+// app.use(axios);
 
 app.component("SummaryBox",SummaryBox);
 app.component("EditSummary",EditSummary);
@@ -56,6 +57,7 @@ app.component("LanguageItem",LanguageItem);
 app.component("EditLanguageItem",EditLanguageItem);
 app.component("NewLanguageItem",NewLanguageItem);
 
+app.use(VueAxios, axios) 
 app.mount('#root');
 
   

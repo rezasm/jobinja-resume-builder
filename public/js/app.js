@@ -19712,8 +19712,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['getDataRoute'],
   data: function data() {
     return {
       showEditBtn: false,
@@ -19722,8 +19724,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {},
   mounted: function mounted() {
-    axios.get(this.getDataRoute).then(function (response) {
-      return console.log(response);
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-person-data').then(function (response) {
+      return console.log(response.data);
     });
   }
 });
@@ -21289,29 +21291,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/EditSummary.vue */ "./resources/js/components/EditSummary.vue");
-/* harmony import */ var _components_SummaryBox_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/SummaryBox.vue */ "./resources/js/components/SummaryBox.vue");
-/* harmony import */ var _components_PersonalInfo_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/PersonalInfo.vue */ "./resources/js/components/PersonalInfo.vue");
-/* harmony import */ var _components_EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/EditPersonalInfo.vue */ "./resources/js/components/EditPersonalInfo.vue");
-/* harmony import */ var _components_AboutMe_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/AboutMe.vue */ "./resources/js/components/AboutMe.vue");
-/* harmony import */ var _components_EditAboutMe_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/EditAboutMe.vue */ "./resources/js/components/EditAboutMe.vue");
-/* harmony import */ var _components_MySkills_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/MySkills.vue */ "./resources/js/components/MySkills.vue");
-/* harmony import */ var _components_EditMySkills_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/EditMySkills.vue */ "./resources/js/components/EditMySkills.vue");
-/* harmony import */ var _components_LastJobs_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/LastJobs.vue */ "./resources/js/components/LastJobs.vue");
-/* harmony import */ var _components_JobItem_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/JobItem.vue */ "./resources/js/components/JobItem.vue");
-/* harmony import */ var _components_EditJobItem_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/EditJobItem.vue */ "./resources/js/components/EditJobItem.vue");
-/* harmony import */ var _components_NewJobItem_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/NewJobItem.vue */ "./resources/js/components/NewJobItem.vue");
-/* harmony import */ var _components_EducationHistory_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/EducationHistory.vue */ "./resources/js/components/EducationHistory.vue");
-/* harmony import */ var _components_EducationItem_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/EducationItem.vue */ "./resources/js/components/EducationItem.vue");
-/* harmony import */ var _components_EditEducationItem_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/EditEducationItem.vue */ "./resources/js/components/EditEducationItem.vue");
-/* harmony import */ var _components_NewEducation_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/NewEducation.vue */ "./resources/js/components/NewEducation.vue");
-/* harmony import */ var _components_MyLanguages_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/MyLanguages.vue */ "./resources/js/components/MyLanguages.vue");
-/* harmony import */ var _components_LanguageItem_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/LanguageItem.vue */ "./resources/js/components/LanguageItem.vue");
-/* harmony import */ var _components_EditLanguageItem_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/EditLanguageItem.vue */ "./resources/js/components/EditLanguageItem.vue");
-/* harmony import */ var _components_NewLanguageItem_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/NewLanguageItem.vue */ "./resources/js/components/NewLanguageItem.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
+/* harmony import */ var _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/EditSummary.vue */ "./resources/js/components/EditSummary.vue");
+/* harmony import */ var _components_SummaryBox_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/SummaryBox.vue */ "./resources/js/components/SummaryBox.vue");
+/* harmony import */ var _components_PersonalInfo_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/PersonalInfo.vue */ "./resources/js/components/PersonalInfo.vue");
+/* harmony import */ var _components_EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/EditPersonalInfo.vue */ "./resources/js/components/EditPersonalInfo.vue");
+/* harmony import */ var _components_AboutMe_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/AboutMe.vue */ "./resources/js/components/AboutMe.vue");
+/* harmony import */ var _components_EditAboutMe_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/EditAboutMe.vue */ "./resources/js/components/EditAboutMe.vue");
+/* harmony import */ var _components_MySkills_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/MySkills.vue */ "./resources/js/components/MySkills.vue");
+/* harmony import */ var _components_EditMySkills_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/EditMySkills.vue */ "./resources/js/components/EditMySkills.vue");
+/* harmony import */ var _components_LastJobs_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/LastJobs.vue */ "./resources/js/components/LastJobs.vue");
+/* harmony import */ var _components_JobItem_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/JobItem.vue */ "./resources/js/components/JobItem.vue");
+/* harmony import */ var _components_EditJobItem_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/EditJobItem.vue */ "./resources/js/components/EditJobItem.vue");
+/* harmony import */ var _components_NewJobItem_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/NewJobItem.vue */ "./resources/js/components/NewJobItem.vue");
+/* harmony import */ var _components_EducationHistory_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/EducationHistory.vue */ "./resources/js/components/EducationHistory.vue");
+/* harmony import */ var _components_EducationItem_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/EducationItem.vue */ "./resources/js/components/EducationItem.vue");
+/* harmony import */ var _components_EditEducationItem_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/EditEducationItem.vue */ "./resources/js/components/EditEducationItem.vue");
+/* harmony import */ var _components_NewEducation_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/NewEducation.vue */ "./resources/js/components/NewEducation.vue");
+/* harmony import */ var _components_MyLanguages_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/MyLanguages.vue */ "./resources/js/components/MyLanguages.vue");
+/* harmony import */ var _components_LanguageItem_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/LanguageItem.vue */ "./resources/js/components/LanguageItem.vue");
+/* harmony import */ var _components_EditLanguageItem_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/EditLanguageItem.vue */ "./resources/js/components/EditLanguageItem.vue");
+/* harmony import */ var _components_NewLanguageItem_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/NewLanguageItem.vue */ "./resources/js/components/NewLanguageItem.vue");
 
 
 
@@ -21339,28 +21341,29 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   data: function data() {
     return {};
   }
-});
-app.use(vue_axios__WEBPACK_IMPORTED_MODULE_22__["default"], (axios__WEBPACK_IMPORTED_MODULE_21___default()));
-app.component("SummaryBox", _components_SummaryBox_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
-app.component("EditSummary", _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
-app.component("PersonalInfo", _components_PersonalInfo_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
-app.component("EditPersonalInfo", _components_EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
-app.component("AboutMe", _components_AboutMe_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
-app.component("EditAboutMe", _components_EditAboutMe_vue__WEBPACK_IMPORTED_MODULE_6__["default"]);
-app.component("MySkills", _components_MySkills_vue__WEBPACK_IMPORTED_MODULE_7__["default"]);
-app.component("EditMySkills", _components_EditMySkills_vue__WEBPACK_IMPORTED_MODULE_8__["default"]);
-app.component("LastJobs", _components_LastJobs_vue__WEBPACK_IMPORTED_MODULE_9__["default"]);
-app.component("JobItem", _components_JobItem_vue__WEBPACK_IMPORTED_MODULE_10__["default"]);
-app.component("EditJobItem", _components_EditJobItem_vue__WEBPACK_IMPORTED_MODULE_11__["default"]);
-app.component("NewJobItem", _components_NewJobItem_vue__WEBPACK_IMPORTED_MODULE_12__["default"]);
-app.component("EducationHistory", _components_EducationHistory_vue__WEBPACK_IMPORTED_MODULE_13__["default"]);
-app.component("EducationItem", _components_EducationItem_vue__WEBPACK_IMPORTED_MODULE_14__["default"]);
-app.component("EditEducationItem", _components_EditEducationItem_vue__WEBPACK_IMPORTED_MODULE_15__["default"]);
-app.component("NewEducation", _components_NewEducation_vue__WEBPACK_IMPORTED_MODULE_16__["default"]);
-app.component("MyLanguages", _components_MyLanguages_vue__WEBPACK_IMPORTED_MODULE_17__["default"]);
-app.component("LanguageItem", _components_LanguageItem_vue__WEBPACK_IMPORTED_MODULE_18__["default"]);
-app.component("EditLanguageItem", _components_EditLanguageItem_vue__WEBPACK_IMPORTED_MODULE_19__["default"]);
-app.component("NewLanguageItem", _components_NewLanguageItem_vue__WEBPACK_IMPORTED_MODULE_20__["default"]);
+}); // app.use(axios);
+
+app.component("SummaryBox", _components_SummaryBox_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
+app.component("EditSummary", _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
+app.component("PersonalInfo", _components_PersonalInfo_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
+app.component("EditPersonalInfo", _components_EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_6__["default"]);
+app.component("AboutMe", _components_AboutMe_vue__WEBPACK_IMPORTED_MODULE_7__["default"]);
+app.component("EditAboutMe", _components_EditAboutMe_vue__WEBPACK_IMPORTED_MODULE_8__["default"]);
+app.component("MySkills", _components_MySkills_vue__WEBPACK_IMPORTED_MODULE_9__["default"]);
+app.component("EditMySkills", _components_EditMySkills_vue__WEBPACK_IMPORTED_MODULE_10__["default"]);
+app.component("LastJobs", _components_LastJobs_vue__WEBPACK_IMPORTED_MODULE_11__["default"]);
+app.component("JobItem", _components_JobItem_vue__WEBPACK_IMPORTED_MODULE_12__["default"]);
+app.component("EditJobItem", _components_EditJobItem_vue__WEBPACK_IMPORTED_MODULE_13__["default"]);
+app.component("NewJobItem", _components_NewJobItem_vue__WEBPACK_IMPORTED_MODULE_14__["default"]);
+app.component("EducationHistory", _components_EducationHistory_vue__WEBPACK_IMPORTED_MODULE_15__["default"]);
+app.component("EducationItem", _components_EducationItem_vue__WEBPACK_IMPORTED_MODULE_16__["default"]);
+app.component("EditEducationItem", _components_EditEducationItem_vue__WEBPACK_IMPORTED_MODULE_17__["default"]);
+app.component("NewEducation", _components_NewEducation_vue__WEBPACK_IMPORTED_MODULE_18__["default"]);
+app.component("MyLanguages", _components_MyLanguages_vue__WEBPACK_IMPORTED_MODULE_19__["default"]);
+app.component("LanguageItem", _components_LanguageItem_vue__WEBPACK_IMPORTED_MODULE_20__["default"]);
+app.component("EditLanguageItem", _components_EditLanguageItem_vue__WEBPACK_IMPORTED_MODULE_21__["default"]);
+app.component("NewLanguageItem", _components_NewLanguageItem_vue__WEBPACK_IMPORTED_MODULE_22__["default"]);
+app.use(vue_axios__WEBPACK_IMPORTED_MODULE_2__["default"], (axios__WEBPACK_IMPORTED_MODULE_1___default()));
 app.mount('#root');
 
 /***/ }),
@@ -23047,7 +23050,7 @@ function compileToFunction(template, options) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\laragon\\\\www\\\\resume-builder","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\laragon\\\\www\\\\resume-builder"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\laragon\\\\www\\\\resume-builder","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ }),
 
