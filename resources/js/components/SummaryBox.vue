@@ -67,7 +67,7 @@
 
 <script>
 export default {
-    
+    props:['getDataRoute'],
     data() {
         return {
             showEditBtn: false,
@@ -77,6 +77,10 @@ export default {
     },
 
     methods: {},
+
+    mounted() {
+         axios.get(this.getDataRoute).then(response => console.log(response));
+    },
 
 
 

@@ -57,7 +57,7 @@
 
             <div  class="col-lg-8">
                 {{-- Resume section --}}
-                <summary-box></summary-box>
+                <summary-box getDataRoute="{{route('get.person.data')}}"></summary-box>
                  {{-- End Resume section --}}
 
                 {{-- Resume Section --}}
