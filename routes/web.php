@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 
-Route::get('/get-person-data',[PersonController::class,'getData'])->name('get.person.data');
+Route::get('/get-summary-data',[PersonController::class,'getSummaryData'])->name('get.summary.data');
+Route::post('/save-summary-data',[PersonController::class,'saveSummaryData'])->name('save.summary.data');

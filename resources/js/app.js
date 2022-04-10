@@ -19,8 +19,7 @@ import MyLanguages from "./components/MyLanguages.vue";
 import LanguageItem from "./components/LanguageItem.vue";
 import EditLanguageItem from "./components/EditLanguageItem.vue";
 import NewLanguageItem from "./components/NewLanguageItem.vue";
-import axios from 'axios';
-import VueAxios from 'vue-axios';
+ 
 
 
 
@@ -33,7 +32,7 @@ const app = createApp({
     }
 
 });
-app.use(VueAxios,axios);
+ 
 
 app.component("SummaryBox",SummaryBox);
 app.component("EditSummary",EditSummary);

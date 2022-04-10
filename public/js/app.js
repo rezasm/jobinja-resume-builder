@@ -19429,6 +19429,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -19438,10 +19441,32 @@ __webpack_require__.r(__webpack_exports__);
       EditdisplayStatus: {
         display: "none"
       },
-      EditForm: false
+      EditForm: false,
+      fullname: "",
+      job_title: "",
+      job_status: ""
     };
   },
-  methods: {}
+  methods: {
+    saveData: function saveData() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/save-summary-data', {
+        "name": this.fullname,
+        "job_title": this.job_title,
+        "job_status": this.job_status
+      }).then(function (Response) {
+        return console.log(Response.data.msg);
+      }, this.$emit('cancel'))["catch"](function (error) {
+        console.error("There was an error!", error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-summary-data').then(function (Response) {
+      _this.fullname = Response.data.fullname, _this.job_status = Response.data.job_status, _this.job_title = Response.data.job_title;
+    });
+  }
 });
 
 /***/ }),
@@ -19712,18 +19737,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['getDataRoute'],
   data: function data() {
-    return {
+    return _defineProperty({
       showEditBtn: false,
-      showEditForm: false
-    };
+      showEditForm: false,
+      fullname: "نام و نام خانوادگی",
+      job_title: "",
+      job_status: ""
+    }, "job_title", "");
   },
   methods: {},
   mounted: function mounted() {
-    axios.get(this.getDataRoute).then(function (response) {
-      return console.log(response);
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-summary-data').then(function (Response) {
+      _this.fullname = Response.data.fullname, _this.job_status = Response.data.job_status, _this.job_title = Response.data.job_title;
     });
   }
 });
@@ -20382,26 +20416,129 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "row"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-sm-7 mt-5\"><div><label for=\"\">نام و نام خانوادگی</label></div><input type=\"text\" name=\"name\" class=\"input-field\"></div><div class=\"col-sm-7 mt-5\"><div><label for=\"\">عنوان شغلی</label></div><input type=\"text\" name=\"job_title\"></div><div class=\"col-sm-7 mt-5\"><div><label for=\"\">وضعیت اشتغال</label></div><label for=\"\">جویای کار</label><input class=\"radio-btn\" type=\"radio\" name=\"job_status\" id=\"\"><label for=\"\">به دنبال شغل بهتر</label><input type=\"radio\" name=\"job_status\" id=\"\"><label for=\"\">شاغل</label><input type=\"radio\" name=\"job_status\" id=\"\"></div><div class=\"col-sm-12 mt-5\"><h5>آخرین شرکت </h5><a class=\"last-company\" href=\"#\">ایران خودرو زیبایی</a></div><div class=\"col-sm-12 mt-5\"><h5 for=\"\">آخرین مدرک تحصیلی</h5><a class=\"last-company\" href=\"#\">کارشناسی ارشد</a></div>", 5);
-
-var _hoisted_8 = {
-  "class": "col-sm-12 text-left p-5"
+var _hoisted_3 = {
+  "class": "col-sm-7 mt-5"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "save-btn"
-}, "ذخیره", -1
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "نام و نام خانوادگی")], -1
 /* HOISTED */
 );
 
+var _hoisted_5 = ["value"];
+var _hoisted_6 = {
+  "class": "col-sm-7 mt-5"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "عنوان شغلی")], -1
+/* HOISTED */
+);
+
+var _hoisted_8 = ["value"];
+var _hoisted_9 = {
+  "class": "col-sm-7 mt-5"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "وضعیت اشتغال")], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "جویای کار", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = ["checked"];
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "به دنبال شغل بهتر", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = ["checked"];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "شاغل", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = ["checked"];
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-sm-12 mt-5\"><h5>آخرین شرکت </h5><a class=\"last-company\" href=\"#\">ایران خودرو زیبایی</a></div><div class=\"col-sm-12 mt-5\"><h5 for=\"\">آخرین مدرک تحصیلی</h5><a class=\"last-company\" href=\"#\">کارشناسی ارشد</a></div>", 2);
+
+var _hoisted_19 = {
+  "class": "col-sm-12 text-left p-5"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "name",
+    "class": "input-field",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.fullname = $event;
+    }),
+    value: $data.fullname
+  }, null, 8
+  /* PROPS */
+  , _hoisted_5), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.fullname]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "job_title",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.job_title = $event;
+    }),
+    value: $data.job_title
+  }, null, 8
+  /* PROPS */
+  , _hoisted_8), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.job_title]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "radio-btn",
+    type: "radio",
+    name: "job_status",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.job_status = $event;
+    }),
+    value: "searching",
+    checked: $data.job_status == 'searching'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_12), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.job_status]]), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    name: "job_status",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.job_status = $event;
+    }),
+    value: "better_job",
+    checked: $data.job_status == 'better_job'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_14), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.job_status]]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    name: "job_status",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.job_status = $event;
+    }),
+    value: "working",
+    checked: $data.job_status == 'working'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_16), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.job_status]])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[5] || (_cache[5] = function ($event) {
       return _ctx.$emit('cancel');
     }),
     "class": "cancel-btn"
-  }, "انصراف"), _hoisted_9])])]);
+  }, "انصراف"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[6] || (_cache[6] = function () {
+      return $options.saveData && $options.saveData.apply($options, arguments);
+    }),
+    "class": "save-btn"
+  }, "ذخیره")])])]);
 }
 
 /***/ }),
@@ -21230,18 +21367,52 @@ var _hoisted_2 = {
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center avatar-col col-md-2\"><div class=\"picture-icon\"><i class=\"fa fa-solid fa-user\"></i></div><label class=\"btn t mt-1 w-100 upload-image-btn\" for=\"UploadAvatar\"> آپلود عکس </label><input style=\"display:none;\" type=\"file\" name=\"avatar\" id=\"UploadAvatar\"></div>", 1);
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"w-100 summary-list-wrapper\"><ul><li class=\"fullname\"> رضا سلام محمره </li><li> عنوان شغلی:برنامه نویس </li><li> وضعیت اشتغال:شاغل </li><li> آخرین شرکت:ایران خودرو زیبایی </li><li> آخرین مدرک تحصیلی:کارشناسی ارشد </li></ul><a class=\"btn see-resume-btn\" href=\"#\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i> مشاهده رزومه</a><a class=\"download-cv-btn p-1\" href=\"#\">دریافت فایل رزومه</a></div>", 1);
+var _hoisted_4 = {
+  "class": "w-100 summary-list-wrapper"
+};
+var _hoisted_5 = {
+  "class": "fullname"
+};
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" عنوان شغلی: ");
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" وضعیت اشتغال: ");
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, " آخرین شرکت:ایران خودرو زیبایی ", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, " آخرین مدرک تحصیلی:کارشناسی ارشد ", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "btn see-resume-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-eye",
+  "aria-hidden": "true"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" مشاهده رزومه")], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "download-cv-btn p-1",
+  href: "#"
+}, "دریافت فایل رزومه", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-pencil",
   "aria-hidden": "true"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش");
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش");
 
-var _hoisted_7 = [_hoisted_5, _hoisted_6];
+var _hoisted_14 = [_hoisted_12, _hoisted_13];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_edit_summary = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-summary");
 
@@ -21258,12 +21429,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.showEditForm = true;
     }),
     "class": "col-md-10 summary-col position-relative"
-  }, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.fullname), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.job_title), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.job_status), 1
+  /* TEXT */
+  )]), _hoisted_8, _hoisted_9]), _hoisted_10, _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.showEditForm = true;
     }),
     "class": "position-absolute edit-btn"
-  }, _hoisted_7, 512
+  }, _hoisted_14, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])], 512
   /* NEED_PATCH */
@@ -21309,11 +21486,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_LanguageItem_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/LanguageItem.vue */ "./resources/js/components/LanguageItem.vue");
 /* harmony import */ var _components_EditLanguageItem_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/EditLanguageItem.vue */ "./resources/js/components/EditLanguageItem.vue");
 /* harmony import */ var _components_NewLanguageItem_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/NewLanguageItem.vue */ "./resources/js/components/NewLanguageItem.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
-
-
 
 
 
@@ -21340,7 +21512,6 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
     return {};
   }
 });
-app.use(vue_axios__WEBPACK_IMPORTED_MODULE_22__["default"], (axios__WEBPACK_IMPORTED_MODULE_21___default()));
 app.component("SummaryBox", _components_SummaryBox_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
 app.component("EditSummary", _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 app.component("PersonalInfo", _components_PersonalInfo_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
@@ -21569,22 +21740,6 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-
-/***/ }),
-
-/***/ "./node_modules/vue-axios/dist/vue-axios.esm.min.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/vue-axios/dist/vue-axios.esm.min.js ***!
-  \**********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ plugin)
-/* harmony export */ });
-/* module decorator */ module = __webpack_require__.hmd(module);
-function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function plugin(e,n){if(!e.vueAxiosInstalled){var o=isAxiosLike(n)?migrateToMultipleInstances(n):n;if(isValidConfig(o)){var t=getVueVersion(e);if(t){var i=t<3?registerOnVue2:registerOnVue3;Object.keys(o).forEach((function(n){i(e,n,o[n])})),e.vueAxiosInstalled=!0}else console.error("[vue-axios] unknown Vue version")}else console.error("[vue-axios] configuration is invalid, expected options are either <axios_instance> or { <registration_key>: <axios_instance> }")}}function registerOnVue2(e,n,o){Object.defineProperty(e.prototype,n,{get:function(){return o}}),e[n]=o}function registerOnVue3(e,n,o){e.config.globalProperties[n]=o,e[n]=o}function isAxiosLike(e){return e&&"function"==typeof e.get&&"function"==typeof e.post}function migrateToMultipleInstances(e){return{axios:e,$http:e}}function isValidConfig(e){return"object"===_typeof(e)&&Object.keys(e).every((function(n){return isAxiosLike(e[n])}))}function getVueVersion(e){return e&&e.version&&Number(e.version.split(".")[0])}"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=plugin:"function"==typeof define&&__webpack_require__.amdO?define([],(function(){return plugin})):window.Vue&&window.axios&&window.Vue.use&&Vue.use(plugin,window.axios);
 
 /***/ }),
 
@@ -23120,16 +23275,13 @@ module.exports = JSON.parse('[{"title":"مهر"},{"title":"آبان"},{"title":"
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			loaded: false,
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -23139,11 +23291,6 @@ module.exports = JSON.parse('[{"title":"مهر"},{"title":"آبان"},{"title":"
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/amd options */
-/******/ 	(() => {
-/******/ 		__webpack_require__.amdO = {};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
 /******/ 		var deferred = [];
@@ -23210,21 +23357,6 @@ module.exports = JSON.parse('[{"title":"مهر"},{"title":"آبان"},{"title":"
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/harmony module decorator */
-/******/ 	(() => {
-/******/ 		__webpack_require__.hmd = (module) => {
-/******/ 			module = Object.create(module);
-/******/ 			if (!module.children) module.children = [];
-/******/ 			Object.defineProperty(module, 'exports', {
-/******/ 				enumerable: true,
-/******/ 				set: () => {
-/******/ 					throw new Error('ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: ' + module.id);
-/******/ 				}
-/******/ 			});
-/******/ 			return module;
-/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

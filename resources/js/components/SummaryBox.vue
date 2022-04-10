@@ -3,8 +3,7 @@
     <div class="box-content summary" v-on:mouseenter="showEditBtn=!showEditBtn"
         v-on:mouseleave="showEditBtn=!showEditBtn">
         <div class="row">
-
-
+ 
             <div class=" text-center avatar-col col-md-2">
                 <div class="picture-icon">
                     <i class="fa fa-solid fa-user"></i>
@@ -21,16 +20,17 @@
                 <div class="w-100 summary-list-wrapper">
                     <ul>
                         <li class="fullname">
-                            رضا سلام محمره
+                            {{fullname}}
                         </li>
                         <li>
 
-                            عنوان شغلی:برنامه نویس
-
+                            عنوان شغلی:
+                            <span>{{job_title}}</span>
 
                         </li>
                         <li>
-                            وضعیت اشتغال:شاغل
+                            وضعیت اشتغال:
+                            <span>{{job_status}}</span>
                         </li>
                         <li>
                             آخرین شرکت:ایران خودرو زیبایی
@@ -58,7 +58,7 @@
  
   
 
-
+       
         </div>
     </div>
 </div>
@@ -66,21 +66,35 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    props:['getDataRoute'],
+     
     data() {
         return {
             showEditBtn: false,
 
             showEditForm: false,
+            fullname:"نام و نام خانوادگی",
+            job_title:"",
+            job_status:"",
+            job_title:"",
+
         }
     },
 
     methods: {},
 
     mounted() {
-         axios.get(this.getDataRoute).then(response => console.log(response));
-    },
+        
+            axios.get('/get-summary-data').then(Response =>{
+            this.fullname = Response.data.fullname,
+            this.job_status = Response.data.job_status,
+            this.job_title = Response.data.job_title
+        } );
+
+
+     },
 
 
 
