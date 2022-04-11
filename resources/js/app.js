@@ -19,7 +19,7 @@ import MyLanguages from "./components/MyLanguages.vue";
 import LanguageItem from "./components/LanguageItem.vue";
 import EditLanguageItem from "./components/EditLanguageItem.vue";
 import NewLanguageItem from "./components/NewLanguageItem.vue";
- 
+
 
 
 

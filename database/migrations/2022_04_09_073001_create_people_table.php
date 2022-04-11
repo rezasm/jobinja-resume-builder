@@ -27,7 +27,7 @@ class CreatePeopleTable extends Migration
             $table->boolean('married')->nullable();
             $table->string('birth_year')->nullable();
             $table->string('gender')->nullable();
-            $table->string('military_sevice_status')->nullable();
+            $table->string('military_service_status')->nullable();
             $table->text('about_me')->nullable();
             $table->text('skills')->nullable();
             $table->string('image')->nullable();

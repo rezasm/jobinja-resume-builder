@@ -8,7 +8,7 @@
                 اطلاعات فردی
             </h5>
         </div>
-            <edit-personal-info v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-personal-info>
+            <edit-personal-info :person="person" v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-personal-info>
 
         <div v-show="!showEditForm" class="box-content" v-on:click="showEditForm=true" 
                v-on:mouseenter="showEditBtn=!showEditBtn"
@@ -18,37 +18,37 @@
                 <div class="col-6">
                     <div class="item">
                         <h5 class="item-title">آدرس ایمیل</h5>
-                        <span class="item-value"> reza.salam90@gmail.com </span>
+                        <span class="item-value"> {{person.email ?? ''}} </span>
                     </div>
                     <div class="item">
                         <h5 class="item-title">استان محل سکونت</h5>
-                        <span class="item-value"> خوزستان </span>
+                        <span class="item-value"> {{person.province ?? ''}} </span>
                     </div>
                     <div class="item">
                         <h5 class="item-title">وضعیت تعهل</h5>
-                        <span class="item-value"> مجرد </span>
+                        <span class="item-value"> {{person.married ?? ''}} </span>
                     </div>
                     <div class="item">
                         <h5 class="item-title">جنسیت</h5>
-                        <span class="item-value"> مرد </span>
+                        <span class="item-value"> {{person.gender}} </span>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="item">
                         <h5 class="item-title">شماره موبایل</h5>
-                        <span class="item-value"> 09371234567 </span>
+                        <span class="item-value"> {{person.phone}} </span>
                     </div>
                     <div class="item">
                         <h5 class="item-title">آدرس محل سکونت</h5>
-                        <span class="item-value"> اهواز </span>
+                        <span class="item-value"> {{person.address}} </span>
                     </div>
                     <div class="item">
                         <h5 class="item-title">سال تولد</h5>
-                        <span class="item-value"> 1372 </span>
+                        <span class="item-value"> {{person.birth_year}} </span>
                     </div>
                     <div class="item">
                         <h5 class="item-title">وضعیت خدمت سربازی</h5>
-                        <span class="item-value"> پایان خدمت </span>
+                        <span class="item-value"> {{person.military_service_status}} </span>
                     </div>
                 </div>
             </div>
@@ -65,19 +65,27 @@
 
 </template>
 <script>
-import EditPersonalInfo from './EditPersonalInfo.vue'
+import axios from 'axios';
 export default {
-  components: { EditPersonalInfo },
+ 
 
     data(){
         return{
 
             showEditBtn:false,
-            showEditForm:false
-
-
+            showEditForm:false,
+            person:[],
+            
         }
-    }
+    },
+
+    mounted() {
+        axios.get('/get-personal-info').then(Response =>{
+            this.person = Response.data.person;
+            console.log(Response.data.person);
+        });
+    },
+    
 
 
 }

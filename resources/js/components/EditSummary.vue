@@ -11,7 +11,7 @@
                 <label for="">نام و نام خانوادگی</label>
             </div>
             
-            <input type="text" name="name" class="input-field" v-model="fullname" :value="fullname" >
+            <input type="text" name="name" class="input-field" v-model="person.fullname"  >
     
         </div>
         
@@ -20,7 +20,7 @@
 
                     <label for="">عنوان شغلی</label>
                 </div>
-                <input type="text" name="job_title" v-model="job_title" :value="job_title">
+                <input type="text" name="job_title" v-model="person.job_title" >
         
             </div>
             <div class="col-sm-7 mt-5">
@@ -29,13 +29,13 @@
 
                 </div>
                 <label for="">جویای کار</label>
-                <input  class="radio-btn" type="radio" name="job_status" v-model="job_status" value="searching" :checked="job_status == 'searching'">
+                <input  class="radio-btn" type="radio" name="job_status" v-model="person.job_status" value="searching" :checked="person.job_status == 'searching'">
                 
                 <label for="">به دنبال شغل بهتر</label>
-                <input type="radio" name="job_status" v-model="job_status" value="better_job" :checked="job_status == 'better_job'">
+                <input type="radio" name="job_status" v-model="person.job_status" value="better_job" :checked="person.job_status == 'better_job'">
                 
                 <label for="">شاغل</label>
-                <input type="radio" name="job_status" v-model="job_status" value="working" :checked="job_status == 'working'">
+                <input type="radio" name="job_status" v-model="person.job_status" value="working" :checked="person.job_status == 'working'">
         
             </div>
             <div class="col-sm-12 mt-5">
@@ -80,9 +80,11 @@
 
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+
+
 export default {
-    
+        props:['person'],
         data() {
         return {
             displayStatus: {
@@ -92,9 +94,9 @@ export default {
                 display: "none",
             },
             EditForm:false,
-            fullname:"",
-            job_title:"",
-            job_status:"",
+      
+            
+             
         }
     },
     methods:{
@@ -103,9 +105,10 @@ export default {
 
             axios.post('/save-summary-data',
             {
-                "name":this.fullname,
-                "job_title":this.job_title,
-                "job_status":this.job_status
+                
+                "name":this.person.fullname,
+                "job_title":this.person.job_title,
+                "job_status":this.person.job_status
             }
             
             
@@ -125,17 +128,6 @@ export default {
     
     },
     
-    mounted() {
-
-        axios.get('/get-summary-data').then(Response =>{
-            this.fullname = Response.data.fullname,
-            this.job_status = Response.data.job_status,
-            this.job_title = Response.data.job_title
-        } );
-
-    }
-
-
 
 }
 </script>

@@ -20,17 +20,17 @@
                 <div class="w-100 summary-list-wrapper">
                     <ul>
                         <li class="fullname">
-                            {{fullname}}
+                            {{person.fullname}}
                         </li>
                         <li>
 
                             عنوان شغلی:
-                            <span>{{job_title}}</span>
+                            <span>{{person.job_title}}</span>
 
                         </li>
                         <li>
                             وضعیت اشتغال:
-                            <span>{{job_status}}</span>
+                            <span>{{person.job_status}}</span>
                         </li>
                         <li>
                             آخرین شرکت:ایران خودرو زیبایی
@@ -54,7 +54,8 @@
                     ویرایش</button>
             </div>
 
-             <edit-summary v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary>
+            <edit-summary :person="person"
+             v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary> 
  
   
 
@@ -75,22 +76,25 @@ export default {
             showEditBtn: false,
 
             showEditForm: false,
-            fullname:"نام و نام خانوادگی",
-            job_title:"",
-            job_status:"",
-            job_title:"",
-
+            // fullname:"نام و نام خانوادگی",
+            // job_title:"",
+            // job_status:"",
+            // job_title:"",
+            person:[]
         }
     },
-
+                                                    
     methods: {},
 
-    mounted() {
+    created() {
         
             axios.get('/get-summary-data').then(Response =>{
-            this.fullname = Response.data.fullname,
-            this.job_status = Response.data.job_status,
-            this.job_title = Response.data.job_title
+            // this.fullname = Response.data.fullname,
+            // this.job_status = Response.data.job_status,
+            // this.job_title = Response.data.job_title
+            this.person = Response.data.person;
+             
+            
         } );
 
 
