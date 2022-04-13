@@ -10,7 +10,7 @@ class Person extends Model
     use HasFactory;
 
     protected $table = 'people';
-    
+    protected $guarded = [];
 
 
 }

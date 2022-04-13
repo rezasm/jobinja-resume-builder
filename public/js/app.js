@@ -19414,7 +19414,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['person'],
+  data: function data() {
+    return {// province:'',
+      // email:'',
+      // phone:'',
+      // address:'',
+      // married:'',
+      // birth_year:'',
+      // gender:'',
+      // military_service_status:'',
+    };
+  },
+  methods: {
+    saveData: function saveData() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/save-personal-info', {
+        newPerson: this.person
+      }).then(function (Response) {
+        _this.$emit('cancel');
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -19429,7 +19456,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['person'],
   data: function data() {
     return {
       displayStatus: {
@@ -19441,7 +19472,19 @@ __webpack_require__.r(__webpack_exports__);
       EditForm: false
     };
   },
-  methods: {}
+  methods: {
+    saveData: function saveData() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/save-summary-data', {
+        "name": this.person.fullname,
+        "job_title": this.person.job_title,
+        "job_status": this.person.job_status
+      }).then(function (Response) {
+        return console.log(Response.data.msg);
+      }, this.$emit('cancel'))["catch"](function (error) {
+        console.error("There was an error!", error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -19685,17 +19728,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPersonalInfo.vue */ "./resources/js/components/EditPersonalInfo.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    EditPersonalInfo: _EditPersonalInfo_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       showEditBtn: false,
-      showEditForm: false
+      showEditForm: false,
+      person: []
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-personal-info').then(function (Response) {
+      _this.person = Response.data.person;
+    });
   }
 });
 
@@ -19719,13 +19768,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showEditBtn: false,
-      showEditForm: false
+      showEditForm: false,
+      // fullname:"نام و نام خانوادگی",
+      // job_title:"",
+      // job_status:"",
+      // job_title:"",
+      person: []
     };
   },
   methods: {},
-  mounted: function mounted() {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-person-data').then(function (response) {
-      return console.log(response.data);
+  created: function created() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-summary-data').then(function (Response) {
+      // this.fullname = Response.data.fullname,
+      // this.job_status = Response.data.job_status,
+      // this.job_title = Response.data.job_title
+      _this.person = Response.data.person;
     });
   }
 });
@@ -20341,26 +20400,246 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "row"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">آدرس ایمیل</h5><input type=\"text\" name=\"email\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">استان محل سکونت</h5><input type=\"text\" name=\"province\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">وضعیت تعهل</h5><label class=\"m-1\" for=\"single\">مجرد</label><input type=\"radio\" class=\"m-1\" name=\"marrage\" id=\"single\"><label for=\"married\" class=\"m-1\">متاهل</label><input type=\"radio\" class=\"m-1\" name=\"marrage\" id=\"married\"></div><div class=\"item\"><h5 class=\"item-title\">جنسیت</h5><label class=\"m-1\" for=\"male\">مرد</label><input type=\"radio\" class=\"m-1\" name=\"gender\" id=\"male\"><label for=\"female\" class=\"m-1\">زن</label><input type=\"radio\" class=\"m-1\" name=\"gender\" id=\"female\"></div></div><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">شماره موبایل</h5><input type=\"text\" name=\"phone\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">آدرس محل سکونت <small>(اختیاری)</small></h5><input type=\"text\" name=\"city\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">سال تولد</h5><input type=\"text\" name=\"birth_year\" class=\"input-field\"></div><div class=\"item\"><h5 class=\"item-title\">وضعیت خدمت سربازی</h5><select class=\"input-field\" name=\"sarbazi\" id=\"\"><option value=\"payankhedmat\">پایان خدمت</option><option value=\"moafdaem\">معاف دائم</option><option value=\"moaftahsill\">معافیت تحصیلی</option><option value=\"darhaleanjam\">درحال انجام</option><option value=\"mashmool\">مشمول</option></select></div></div>", 2);
-
-var _hoisted_5 = {
-  "class": "col-sm-12 text-left p-5"
+var _hoisted_3 = {
+  "class": "col-6"
+};
+var _hoisted_4 = {
+  "class": "item"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "save-btn m-1"
-}, "ذخیره", -1
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "آدرس ایمیل", -1
 /* HOISTED */
 );
 
+var _hoisted_6 = {
+  "class": "item"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "استان محل سکونت", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  "class": "item"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "وضعیت تعهل", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "m-1",
+  "for": "single"
+}, "مجرد", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = ["checked"];
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "married",
+  "class": "m-1"
+}, "متاهل", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = ["checked"];
+var _hoisted_14 = {
+  "class": "item"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "جنسیت", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "m-1",
+  "for": "male"
+}, "مرد", -1
+/* HOISTED */
+);
+
+var _hoisted_17 = ["checked"];
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "female",
+  "class": "m-1"
+}, "زن", -1
+/* HOISTED */
+);
+
+var _hoisted_19 = ["checked"];
+var _hoisted_20 = {
+  "class": "col-6"
+};
+var _hoisted_21 = {
+  "class": "item"
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "شماره موبایل", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  "class": "item"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("آدرس محل سکونت "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", null, "(اختیاری)")], -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "item"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "سال تولد", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = {
+  "class": "item"
+};
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "وضعیت خدمت سربازی", -1
+/* HOISTED */
+);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"payankhedmat\">پایان خدمت</option><option value=\"moafdaem\">معاف دائم</option><option value=\"moaftahsill\">معافیت تحصیلی</option><option value=\"darhaleanjam\">درحال انجام</option><option value=\"mashmool\">مشمول</option>", 5);
+
+var _hoisted_34 = [_hoisted_29];
+var _hoisted_35 = {
+  "class": "col-sm-12 text-left p-5"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "email",
+    "class": "input-field",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $props.person.email = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.person.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "province",
+    "class": "input-field",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $props.person.province = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.person.province]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    "class": "m-1",
+    name: "marrage",
+    id: "single",
+    value: "single",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $props.person.married = $event;
+    }),
+    checked: $props.person.married == true
+  }, null, 8
+  /* PROPS */
+  , _hoisted_11), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.person.married]]), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    "class": "m-1",
+    name: "marrage",
+    id: "married",
+    value: "married",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $props.person.married = $event;
+    }),
+    checked: $props.person.married == false
+  }, null, 8
+  /* PROPS */
+  , _hoisted_13), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.person.married]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    "class": "m-1",
+    name: "gender",
+    id: "male",
+    value: "male",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $props.person.gender = $event;
+    }),
+    checked: $props.person.gender == 'male'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_17), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.person.gender]]), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    "class": "m-1",
+    name: "gender",
+    id: "female",
+    value: "female",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $props.person.gender = $event;
+    }),
+    checked: $props.person.gender == 'female'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_19), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.person.gender]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "phone",
+    "class": "input-field",
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $props.person.phone = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.person.phone]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "city",
+    "class": "input-field",
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+      return $props.person.address = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.person.address]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "birth_year",
+    "class": "input-field",
+    "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+      return $props.person.birth_year = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.person.birth_year]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "input-field",
+    name: "sarbazi",
+    id: "",
+    "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
+      return $props.person.military_service_status = $event;
+    })
+  }, _hoisted_34, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $props.person.military_service_status]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[10] || (_cache[10] = function ($event) {
       return _ctx.$emit('cancel');
     }),
     "class": "cancel-btn m-1"
-  }, "انصراف"), _hoisted_6])])]);
+  }, "انصراف"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[11] || (_cache[11] = function () {
+      return $options.saveData && $options.saveData.apply($options, arguments);
+    }),
+    "class": "save-btn m-1"
+  }, "ذخیره")])])]);
 }
 
 /***/ }),
@@ -20384,26 +20663,125 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "row"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-sm-7 mt-5\"><div><label for=\"\">نام و نام خانوادگی</label></div><input type=\"text\" name=\"name\" class=\"input-field\"></div><div class=\"col-sm-7 mt-5\"><div><label for=\"\">عنوان شغلی</label></div><input type=\"text\" name=\"job_title\"></div><div class=\"col-sm-7 mt-5\"><div><label for=\"\">وضعیت اشتغال</label></div><label for=\"\">جویای کار</label><input class=\"radio-btn\" type=\"radio\" name=\"job_status\" id=\"\"><label for=\"\">به دنبال شغل بهتر</label><input type=\"radio\" name=\"job_status\" id=\"\"><label for=\"\">شاغل</label><input type=\"radio\" name=\"job_status\" id=\"\"></div><div class=\"col-sm-12 mt-5\"><h5>آخرین شرکت </h5><a class=\"last-company\" href=\"#\">ایران خودرو زیبایی</a></div><div class=\"col-sm-12 mt-5\"><h5 for=\"\">آخرین مدرک تحصیلی</h5><a class=\"last-company\" href=\"#\">کارشناسی ارشد</a></div>", 5);
-
-var _hoisted_8 = {
-  "class": "col-sm-12 text-left p-5"
+var _hoisted_3 = {
+  "class": "col-sm-7 mt-5"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "save-btn"
-}, "ذخیره", -1
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "نام و نام خانوادگی")], -1
 /* HOISTED */
 );
 
+var _hoisted_5 = {
+  "class": "col-sm-7 mt-5"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "عنوان شغلی")], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "col-sm-7 mt-5"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "وضعیت اشتغال")], -1
+/* HOISTED */
+);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "جویای کار", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = ["checked"];
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "به دنبال شغل بهتر", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = ["checked"];
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": ""
+}, "شاغل", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = ["checked"];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-sm-12 mt-5\"><h5>آخرین شرکت </h5><a class=\"last-company\" href=\"#\">ایران خودرو زیبایی</a></div><div class=\"col-sm-12 mt-5\"><h5 for=\"\">آخرین مدرک تحصیلی</h5><a class=\"last-company\" href=\"#\">کارشناسی ارشد</a></div>", 2);
+
+var _hoisted_17 = {
+  "class": "col-sm-12 text-left p-5"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "name",
+    "class": "input-field",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $props.person.fullname = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.person.fullname]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "job_title",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $props.person.job_title = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.person.job_title]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "radio-btn",
+    type: "radio",
+    name: "job_status",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $props.person.job_status = $event;
+    }),
+    value: "searching",
+    checked: $props.person.job_status == 'searching'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_10), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.person.job_status]]), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    name: "job_status",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $props.person.job_status = $event;
+    }),
+    value: "better_job",
+    checked: $props.person.job_status == 'better_job'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_12), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.person.job_status]]), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "radio",
+    name: "job_status",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $props.person.job_status = $event;
+    }),
+    value: "working",
+    checked: $props.person.job_status == 'working'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_14), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.person.job_status]])]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[5] || (_cache[5] = function ($event) {
       return _ctx.$emit('cancel');
     }),
     "class": "cancel-btn"
-  }, "انصراف"), _hoisted_9])])]);
+  }, "انصراف"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[6] || (_cache[6] = function () {
+      return $options.saveData && $options.saveData.apply($options, arguments);
+    }),
+    "class": "save-btn"
+  }, "ذخیره")])])]);
 }
 
 /***/ }),
@@ -21163,28 +21541,143 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">آدرس ایمیل</h5><span class=\"item-value\"> reza.salam90@gmail.com </span></div><div class=\"item\"><h5 class=\"item-title\">استان محل سکونت</h5><span class=\"item-value\"> خوزستان </span></div><div class=\"item\"><h5 class=\"item-title\">وضعیت تعهل</h5><span class=\"item-value\"> مجرد </span></div><div class=\"item\"><h5 class=\"item-title\">جنسیت</h5><span class=\"item-value\"> مرد </span></div></div><div class=\"col-6\"><div class=\"item\"><h5 class=\"item-title\">شماره موبایل</h5><span class=\"item-value\"> 09371234567 </span></div><div class=\"item\"><h5 class=\"item-title\">آدرس محل سکونت</h5><span class=\"item-value\"> اهواز </span></div><div class=\"item\"><h5 class=\"item-title\">سال تولد</h5><span class=\"item-value\"> 1372 </span></div><div class=\"item\"><h5 class=\"item-title\">وضعیت خدمت سربازی</h5><span class=\"item-value\"> پایان خدمت </span></div></div></div>", 1);
+var _hoisted_3 = {
+  "class": "row"
+};
+var _hoisted_4 = {
+  "class": "col-6"
+};
+var _hoisted_5 = {
+  "class": "item"
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "آدرس ایمیل", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "item-value"
+};
+var _hoisted_8 = {
+  "class": "item"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "استان محل سکونت", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
+  "class": "item-value"
+};
+var _hoisted_11 = {
+  "class": "item"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "وضعیت تعهل", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  "class": "item-value"
+};
+var _hoisted_14 = {
+  "class": "item"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "جنسیت", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "item-value"
+};
+var _hoisted_17 = {
+  "class": "col-6"
+};
+var _hoisted_18 = {
+  "class": "item"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "شماره موبایل", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = {
+  "class": "item-value"
+};
+var _hoisted_21 = {
+  "class": "item"
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "آدرس محل سکونت", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  "class": "item-value"
+};
+var _hoisted_24 = {
+  "class": "item"
+};
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "سال تولد", -1
+/* HOISTED */
+);
+
+var _hoisted_26 = {
+  "class": "item-value"
+};
+var _hoisted_27 = {
+  "class": "item"
+};
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "item-title"
+}, "وضعیت خدمت سربازی", -1
+/* HOISTED */
+);
+
+var _hoisted_29 = {
+  "class": "item-value"
+};
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-pencil",
   "aria-hidden": "true"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش ");
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش ");
 
-var _hoisted_6 = [_hoisted_4, _hoisted_5];
+var _hoisted_32 = [_hoisted_30, _hoisted_31];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _$data$person$email, _$data$person$provinc;
+
   var _component_edit_personal_info = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-personal-info");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_personal_info, {
+    person: $data.person,
     onCancel: _cache[0] || (_cache[0] = function ($event) {
       return $data.showEditForm = false;
     })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, null, 8
+  /* PROPS */
+  , ["person"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "box-content",
     onClick: _cache[2] || (_cache[2] = function ($event) {
       return $data.showEditForm = true;
@@ -21195,12 +21688,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onMouseleave: _cache[4] || (_cache[4] = function ($event) {
       return $data.showEditBtn = !$data.showEditBtn;
     })
-  }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$data$person$email = $data.person.email) !== null && _$data$person$email !== void 0 ? _$data$person$email : ''), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$data$person$provinc = $data.person.province) !== null && _$data$person$provinc !== void 0 ? _$data$person$provinc : ''), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.married == 0 ? 'مجرد' : 'متاهل'), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.gender == 'male' ? 'مرد' : 'زن'), 1
+  /* TEXT */
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.phone), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.address), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.birth_year), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.military_service_status), 1
+  /* TEXT */
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $data.showEditForm = true;
     }),
     "class": "position-absolute edit-btn"
-  }, _hoisted_6, 512
+  }, _hoisted_32, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])], 544
   /* HYDRATE_EVENTS, NEED_PATCH */
@@ -21232,18 +21741,52 @@ var _hoisted_2 = {
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center avatar-col col-md-2\"><div class=\"picture-icon\"><i class=\"fa fa-solid fa-user\"></i></div><label class=\"btn t mt-1 w-100 upload-image-btn\" for=\"UploadAvatar\"> آپلود عکس </label><input style=\"display:none;\" type=\"file\" name=\"avatar\" id=\"UploadAvatar\"></div>", 1);
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"w-100 summary-list-wrapper\"><ul><li class=\"fullname\"> رضا سلام محمره </li><li> عنوان شغلی:برنامه نویس </li><li> وضعیت اشتغال:شاغل </li><li> آخرین شرکت:ایران خودرو زیبایی </li><li> آخرین مدرک تحصیلی:کارشناسی ارشد </li></ul><a class=\"btn see-resume-btn\" href=\"#\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i> مشاهده رزومه</a><a class=\"download-cv-btn p-1\" href=\"#\">دریافت فایل رزومه</a></div>", 1);
+var _hoisted_4 = {
+  "class": "w-100 summary-list-wrapper"
+};
+var _hoisted_5 = {
+  "class": "fullname"
+};
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" عنوان شغلی: ");
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" وضعیت اشتغال: ");
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, " آخرین شرکت:ایران خودرو زیبایی ", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, " آخرین مدرک تحصیلی:کارشناسی ارشد ", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "btn see-resume-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fa fa-eye",
+  "aria-hidden": "true"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" مشاهده رزومه")], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "download-cv-btn p-1",
+  href: "#"
+}, "دریافت فایل رزومه", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-pencil",
   "aria-hidden": "true"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش");
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش");
 
-var _hoisted_7 = [_hoisted_5, _hoisted_6];
+var _hoisted_14 = [_hoisted_12, _hoisted_13];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_edit_summary = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-summary");
 
@@ -21260,22 +21803,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.showEditForm = true;
     }),
     "class": "col-md-10 summary-col position-relative"
-  }, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.fullname), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.job_title), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.person.job_status), 1
+  /* TEXT */
+  )]), _hoisted_8, _hoisted_9]), _hoisted_10, _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.showEditForm = true;
     }),
     "class": "position-absolute edit-btn"
-  }, _hoisted_7, 512
+  }, _hoisted_14, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])], 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_summary, {
+    person: $data.person,
     onCancel: _cache[2] || (_cache[2] = function ($event) {
       return $data.showEditForm = false;
     })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])])], 32
+  }, null, 8
+  /* PROPS */
+  , ["person"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])])], 32
   /* HYDRATE_EVENTS */
   )]);
 }
@@ -21341,8 +21891,7 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   data: function data() {
     return {};
   }
-}); // app.use(axios);
-
+});
 app.component("SummaryBox", _components_SummaryBox_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
 app.component("EditSummary", _components_EditSummary_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
 app.component("PersonalInfo", _components_PersonalInfo_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);

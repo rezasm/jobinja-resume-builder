@@ -3,8 +3,7 @@
     <div class="box-content summary" v-on:mouseenter="showEditBtn=!showEditBtn"
         v-on:mouseleave="showEditBtn=!showEditBtn">
         <div class="row">
-
-
+ 
             <div class=" text-center avatar-col col-md-2">
                 <div class="picture-icon">
                     <i class="fa fa-solid fa-user"></i>
@@ -21,16 +20,17 @@
                 <div class="w-100 summary-list-wrapper">
                     <ul>
                         <li class="fullname">
-                            رضا سلام محمره
+                            {{person.fullname}}
                         </li>
                         <li>
 
-                            عنوان شغلی:برنامه نویس
-
+                            عنوان شغلی:
+                            <span>{{person.job_title}}</span>
 
                         </li>
                         <li>
-                            وضعیت اشتغال:شاغل
+                            وضعیت اشتغال:
+                            <span>{{person.job_status}}</span>
                         </li>
                         <li>
                             آخرین شرکت:ایران خودرو زیبایی
@@ -54,11 +54,12 @@
                     ویرایش</button>
             </div>
 
-             <edit-summary v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary>
+            <edit-summary :person="person"
+             v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary> 
  
   
 
-
+       
         </div>
     </div>
 </div>
@@ -67,21 +68,38 @@
 
 <script>
 import axios from 'axios';
+
+
 export default {
-    
+     
     data() {
         return {
             showEditBtn: false,
 
             showEditForm: false,
+            // fullname:"نام و نام خانوادگی",
+            // job_title:"",
+            // job_status:"",
+            // job_title:"",
+            person:[]
         }
     },
-
+                                                    
     methods: {},
 
-    mounted() {
-         axios.get('/get-person-data').then(response => console.log(response.data));
-    },
+    created() {
+        
+            axios.get('/get-summary-data').then(Response =>{
+            // this.fullname = Response.data.fullname,
+            // this.job_status = Response.data.job_status,
+            // this.job_title = Response.data.job_title
+            this.person = Response.data.person;
+             
+            
+        } );
+
+
+     },
 
 
 

@@ -16,6 +16,7 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->string('session_id')->nullable();
             $table->string('fullname')->nullable();
             $table->string('job_title')->nullable();
             $table->string('job_status')->nullable();
@@ -26,11 +27,11 @@ class CreatePeopleTable extends Migration
             $table->boolean('married')->nullable();
             $table->string('birth_year')->nullable();
             $table->string('gender')->nullable();
-            $table->string('military_sevice_status')->nullable();
+            $table->string('military_service_status')->nullable();
             $table->text('about_me')->nullable();
             $table->text('skills')->nullable();
             $table->string('image')->nullable();
-            $table->timestamps();
+                $table->timestamps();
         });
     }
 
