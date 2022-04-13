@@ -95,5 +95,31 @@ class PersonController extends Controller
 
     }
 
+    public function getAboutMe(){
+
+        $person = Person::where('session_id',session()->getId())->first();
+
+        
+        return $person->about_me ?? '';
+
+
+
+    }
+    public function saveAboutMe(){
+
+        $person = Person::where('session_id',session()->getId())->first();
+
+        if(!$person){
+            $person = new Person();
+
+            $person->session_id = session()->getId();
+            
+        }
+        $about_me = request('about_me');
+
+        $person->about_me = $about_me;
+        $person->save();
+
+    }
 
 }

@@ -7,7 +7,9 @@
         >
             <div class="col-lg-12">
 
-            <textarea class="w-100 input-field mt-5" name="about_me" id="" cols="30" rows="10"> </textarea>
+            <textarea class="w-100 input-field mt-5" name="about_me" id="" cols="30" rows="10"
+            
+            v-model="aboutme">{{aboutme}} </textarea>
             </div>
 
 
@@ -16,14 +18,43 @@
                 class="cancel-btn m-1">
                     انصراف
                     </button>
-                <button class="save-btn m-1">ذخیره</button>
+                <button class="save-btn m-1" v-on:click="saveData" >ذخیره</button>
 
             </div>
         </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+
+    props:['aboutme'],
+    data() {
+        return {
+            
+        }
+    },
+
+    methods: {
+        saveData:function(){
+
+
+            axios.post('/save-about-me',{
+                about_me:this.aboutme
+            })
+            .then(response => {
+                console.log(response.data);
+                this.$emit('cancel')
+
+            });
+
+        }
+    },
+
+    mounted() {
+        
+    },
+
 
 }
 </script>

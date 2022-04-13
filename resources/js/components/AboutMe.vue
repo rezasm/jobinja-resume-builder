@@ -11,10 +11,7 @@
                      
                      >
                         <p class="about-text">
-                            به برنامه نویسی بسیار علاقه مند هستم. با زبان php و فریمورک لاراول کار می‌کنم.
-                            زبان انگلیسی را در سطح عالی آشنایی دارم.
-                            وبسایت شخصی: https://rezasm.ir
-
+                            {{aboutMe}}
                         </p>
 
 
@@ -27,7 +24,7 @@
 
                     </div>
 
-                    <edit-about-me v-show="showEditForm"  v-on:cancel="showEditForm=false"></edit-about-me>
+                    <edit-about-me :aboutme="aboutMe" v-show="showEditForm"  v-on:cancel="showEditForm=false"></edit-about-me>
 
 
 
@@ -36,6 +33,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
 
     data() {
@@ -43,9 +41,16 @@ export default {
 
                 showEditBtn:false,
                 showEditForm:false,
+                aboutMe:''
         }
     },
+    mounted() {
+        axios.get('/get-about-me').then(response => {
+            this.aboutMe = response.data;
+            console.log(response.data);
 
+        });
+    },
 
 
 }

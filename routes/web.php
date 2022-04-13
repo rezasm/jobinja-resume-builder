@@ -22,3 +22,6 @@ Route::post('/save-summary-data',[PersonController::class,'saveSummaryData'])->n
 
 Route::get('/get-personal-info',[PersonController::class,'getPersonalInfo'])->name('get.personal.info');
 Route::post('/save-personal-info',[PersonController::class,'savePersonalInfo'])->name('save.personal.info');
+
+Route::get('/get-about-me',[PersonController::class,'getAboutMe'])->name('get.about.me');
+Route::post('/save-about-me',[PersonController::class,'saveAboutMe'])->name('save.about.me');

@@ -19271,12 +19271,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       showEditBtn: false,
-      showEditForm: false
+      showEditForm: false,
+      aboutMe: ''
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-about-me').then(function (response) {
+      _this.aboutMe = response.data;
+      console.log(response.data);
+    });
   }
 });
 
@@ -19293,7 +19305,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['aboutme'],
+  data: function data() {
+    return {};
+  },
+  methods: {
+    saveData: function saveData() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/save-about-me', {
+        about_me: this.aboutme
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this.$emit('cancel');
+      });
+    }
+  },
+  mounted: function mounted() {}
+});
 
 /***/ }),
 
@@ -19817,11 +19851,9 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_3 = {
   "class": "about-text"
-}, " به برنامه نویسی بسیار علاقه مند هستم. با زبان php و فریمورک لاراول کار می‌کنم. زبان انگلیسی را در سطح عالی آشنایی دارم. وبسایت شخصی: https://rezasm.ir ", -1
-/* HOISTED */
-);
+};
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-pencil",
@@ -19847,7 +19879,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.showEditForm = true;
     }),
     "class": "box-content"
-  }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.aboutMe), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.showEditForm = true;
     }),
@@ -19857,12 +19891,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])], 544
   /* HYDRATE_EVENTS, NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_about_me, {
+    aboutme: $data.aboutMe,
     onCancel: _cache[4] || (_cache[4] = function ($event) {
       return $data.showEditForm = false;
     })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
+  }, null, 8
+  /* PROPS */
+  , ["aboutme"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
 }
 
 /***/ }),
@@ -19883,36 +19918,35 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "box-content edit-box"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_2 = {
   "class": "col-lg-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
-  "class": "w-100 input-field mt-5",
-  name: "about_me",
-  id: "",
-  cols: "30",
-  rows: "10"
-}, " ")], -1
-/* HOISTED */
-);
-
+};
 var _hoisted_3 = {
   "class": "col-sm-12 text-left p-5"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "save-btn m-1"
-}, "ذخیره", -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    "class": "w-100 input-field mt-5",
+    name: "about_me",
+    id: "",
+    cols: "30",
+    rows: "10",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $props.aboutme = $event;
+    })
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.aboutme) + " ", 513
+  /* TEXT, NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.aboutme]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
       return _ctx.$emit('cancel');
     }),
     "class": "cancel-btn m-1"
-  }, " انصراف "), _hoisted_4])]);
+  }, " انصراف "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "save-btn m-1",
+    onClick: _cache[2] || (_cache[2] = function () {
+      return $options.saveData && $options.saveData.apply($options, arguments);
+    })
+  }, "ذخیره")])]);
 }
 
 /***/ }),
