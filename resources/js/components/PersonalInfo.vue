@@ -26,11 +26,11 @@
                     </div>
                     <div class="item">
                         <h5 class="item-title">وضعیت تعهل</h5>
-                        <span class="item-value"> {{person.married ?? ''}} </span>
-                    </div>
+                        <span class="item-value"> {{ person.married == 0 ? 'مجرد' : 'متاهل' }} </span>
+                    </div>  
                     <div class="item">
                         <h5 class="item-title">جنسیت</h5>
-                        <span class="item-value"> {{person.gender}} </span>
+                        <span class="item-value"> {{person.gender == 'male' ? 'مرد' : 'زن'}} </span>
                     </div>
                 </div>
                 <div class="col-6">
@@ -80,11 +80,15 @@ export default {
     },
 
     mounted() {
+        
         axios.get('/get-personal-info').then(Response =>{
             this.person = Response.data.person;
-            console.log(Response.data.person);
+           
         });
-    },
+ 
+ 
+ 
+ },
     
 
 

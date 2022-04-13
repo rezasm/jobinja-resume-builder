@@ -99,8 +99,7 @@ export default {
     methods: {
         saveData:function(){
 
-         
-            axios.post('/save-personal-info',
+             axios.post('/save-personal-info',
             
                 {
                     newPerson:this.person
@@ -108,7 +107,6 @@ export default {
 
             ).then(Response =>{
 
-                console.log(Response.data);
              
                 this.$emit('cancel');
             });

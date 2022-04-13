@@ -50,30 +50,38 @@ class PersonController extends Controller
 
         $person = Person::where('session_id',session()->getId())->first();
 
+
+
         return [
-            
-        'person' => [ 'email' => $person->email,
-            'phone' => $person->phone,
-            'province' => $person->province,
-            'address' => $person->address,
-            'birth_year' => $person->birth_year,
-            'married' => $person->married,
-            'gender' => $person->gender,
-            'military_service_status' => $person->military_service_status]
+
+        'person' => [ 
+            'email' => $person->email ?? null,
+            'phone' => $person->phone ?? null,
+            'province' => $person->province ?? null,
+            'address' => $person->address ?? null,
+            'birth_year' => $person->birth_year ?? null,
+            'married' => $person->married ?? null,
+            'gender' => $person->gender ?? null,
+            'military_service_status' => $person->military_service_status ?? ''
+            ]
+
       
         ];
 
     }
 
     public function savePersonalInfo(){
-
         
         $person = Person::where('session_id',session()->getId())->first();
 
+        if(!$person){
+            $person = new Person();
+            $person->session_id = session()->getId();
+        }
 
         $new_data = request('newPerson'); // array
        
-        $person->email = 'sadfas'; 
+        $person->email = 'ssxa'; 
         $person->phone = $new_data['phone']; 
         $person->province = $new_data['province']; 
         $person->address = $new_data['address']; 
