@@ -39,15 +39,28 @@
 </template>
 
 <script>
-import jobsAarray from '../jobs.json'
+// import jobsAarray from '../jobs.json';
+import axios from 'axios';
 export default {
 
       data() {
         return {
-            jobs:jobsAarray,
+            jobs:[],
             showNewJobForm:false
          
         }
+    },
+    mounted() {
+            axios.get('/get-jobs').then(Response => {
+
+                console.log(Response.data);
+
+                this.jobs = Response.data;
+
+
+            });
+        
+
     },
 
 

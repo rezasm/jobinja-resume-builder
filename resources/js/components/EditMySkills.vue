@@ -39,8 +39,9 @@ export default {
             this.skills.push(this.skill);
         },
         RemoveSkill(index){
+    
             this.skills.splice(index,1);
-
+            
         },
     saveData(){
         axios.post('/save-skills',

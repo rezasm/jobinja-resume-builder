@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\PersonController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,6 @@ Route::post('/save-about-me',[PersonController::class,'saveAboutMe'])->name('sav
 
 Route::get('/get-skills',[PersonController::class,'getSkills'])->name('get.skills');
 Route::post('/save-skills',[PersonController::class,'saveSkills'])->name('save.skills');
+
+Route::get('/get-jobs',[JobController::class,'getJobs'])->name('get.jobs');
+Route::post('/save-jobs',[JobController::class,'saveJobs'])->name('save.jobs');
