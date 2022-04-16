@@ -19287,7 +19287,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-about-me').then(function (response) {
       _this.aboutMe = response.data;
-      console.log(response.data);
+      console.log(response);
     });
   }
 });
@@ -19309,7 +19309,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['aboutme'],
+  props: ['aboutMe'],
   data: function data() {
     return {};
   },
@@ -19318,7 +19318,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/save-about-me', {
-        about_me: this.aboutme
+        "about_me": this.aboutMe
       }).then(function (response) {
         console.log(response.data);
 
@@ -19412,25 +19412,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['skills'],
   data: function data() {
-    return {
-      skills: [{
-        title: 'php'
-      }, {
-        title: 'laravel'
-      }],
-      title: ''
-    };
+    return {};
   },
   methods: {
     addSkill: function addSkill() {
-      this.skills.push({
-        title: this.title
-      });
+      this.skills.push(this.skill);
     },
     RemoveSkill: function RemoveSkill(index) {
       this.skills.splice(index, 1);
+    },
+    saveData: function saveData() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/save-skills', {
+        "skills": this.skills
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this.$emit('cancel');
+      });
     }
   }
 });
@@ -19454,15 +19460,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['person'],
   data: function data() {
-    return {// province:'',
-      // email:'',
-      // phone:'',
-      // address:'',
-      // married:'',
-      // birth_year:'',
-      // gender:'',
-      // military_service_status:'',
-    };
+    return {};
   },
   methods: {
     saveData: function saveData() {
@@ -19675,13 +19673,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       showEditBtn: false,
-      showEditForm: false
+      showEditForm: false,
+      skills: []
     };
-  }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-skills').then(function (response) {
+      _this.skills = response.data;
+      console.log(_this.skills);
+    });
+    ;
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -19891,13 +19903,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])], 544
   /* HYDRATE_EVENTS, NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_about_me, {
-    aboutme: $data.aboutMe,
+    "about-me": $data.aboutMe,
     onCancel: _cache[4] || (_cache[4] = function ($event) {
       return $data.showEditForm = false;
     })
   }, null, 8
   /* PROPS */
-  , ["aboutme"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
+  , ["about-me"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
 }
 
 /***/ }),
@@ -19932,11 +19944,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     cols: "30",
     rows: "10",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $props.aboutme = $event;
+      return $props.aboutMe = $event;
     })
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.aboutme) + " ", 513
-  /* TEXT, NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.aboutme]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.aboutMe]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return _ctx.$emit('cancel');
     }),
@@ -20369,16 +20381,9 @@ var _hoisted_6 = {
 var _hoisted_7 = {
   "class": "col-sm-12 text-left p-5"
 };
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "save-btn m-1"
-}, "ذخیره", -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.skills, function (skill, index) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(skill.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.skills, function (skill, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(skill), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
       onClick: function onClick($event) {
@@ -20395,11 +20400,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "text",
     name: "skill_title",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.title = $event;
+      return _ctx.skill = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.skill]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.addSkill && $options.addSkill.apply($options, arguments);
     }),
@@ -20410,7 +20415,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.$emit('cancel');
     }),
     "class": "cancel-btn m-1"
-  }, " انصراف "), _hoisted_8])]);
+  }, " انصراف "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "save-btn m-1",
+    onClick: _cache[3] || (_cache[3] = function () {
+      return $options.saveData && $options.saveData.apply($options, arguments);
+    })
+  }, "ذخیره")])]);
 }
 
 /***/ }),
@@ -21258,19 +21268,21 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = {
   "class": "col-12 mt-5 mb-5"
 };
+var _hoisted_4 = {
+  "class": "skill-item",
+  href: "#"
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"skill-item\" href=\"#\"> PHP </a><a class=\"skill-item\" href=\"#\"> LARAVEL </a><a class=\"skill-item\" href=\"#\"> HTML </a><a class=\"skill-item\" href=\"#\"> CSS </a><a class=\"skill-item\" href=\"#\"> JQUERY </a>", 5);
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-pencil",
   "aria-hidden": "true"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش");
 
-var _hoisted_11 = [_hoisted_9, _hoisted_10];
+var _hoisted_7 = [_hoisted_5, _hoisted_6];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_edit_my_skills = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-my-skills");
 
@@ -21285,22 +21297,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onMouseleave: _cache[3] || (_cache[3] = function ($event) {
       return $data.showEditBtn = false;
     })
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.skills, function (skill) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(skill), 1
+    /* TEXT */
+    );
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.showEditForm = true;
     }),
     "class": "position-absolute edit-btn"
-  }, _hoisted_11, 512
+  }, _hoisted_7, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])])], 544
   /* HYDRATE_EVENTS, NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_my_skills, {
+    skills: $data.skills,
     onCancel: _cache[4] || (_cache[4] = function ($event) {
       return $data.showEditForm = false;
     })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
+  }, null, 8
+  /* PROPS */
+  , ["skills"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
 }
 
 /***/ }),

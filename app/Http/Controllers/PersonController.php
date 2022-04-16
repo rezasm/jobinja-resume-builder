@@ -99,6 +99,7 @@ class PersonController extends Controller
 
         $person = Person::where('session_id',session()->getId())->first();
 
+
         
         return $person->about_me ?? '';
 
@@ -119,6 +120,39 @@ class PersonController extends Controller
 
         $person->about_me = $about_me;
         $person->save();
+
+    }
+
+    public function getSkills(){
+
+        $person = Person::where('session_id',session()->getId())->first();
+
+        $skills_array = explode(',',$person->skills);
+
+        return $skills_array ?? [];
+
+
+    }
+
+    public function saveSkills(){
+
+        $skills = request('skills'); //array
+
+        $skilld_str = implode(',',$skills);
+
+        $person = Person::where('session_id',session()->getId())->first();
+
+        if(!$person){
+            $person = new Person();
+
+            $person->session_id = session()->getId();
+            
+        }
+
+        $person->skills = $skilld_str;
+        $person->save();
+
+        return ['Data saved Successfully'];
 
     }
 

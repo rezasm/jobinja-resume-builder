@@ -9,7 +9,7 @@
 
             <textarea class="w-100 input-field mt-5" name="about_me" id="" cols="30" rows="10"
             
-            v-model="aboutme">{{aboutme}} </textarea>
+            v-model="aboutMe"></textarea>
             </div>
 
 
@@ -28,7 +28,7 @@
 import axios from 'axios';
 export default {
 
-    props:['aboutme'],
+    props:['aboutMe'],
     data() {
         return {
             
@@ -40,7 +40,7 @@ export default {
 
 
             axios.post('/save-about-me',{
-                about_me:this.aboutme
+                "about_me":this.aboutMe
             })
             .then(response => {
                 console.log(response.data);

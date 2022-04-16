@@ -84,14 +84,7 @@ export default {
     data() {
         return {
             
-                // province:'',
-                // email:'',
-                // phone:'',
-                // address:'',
-                // married:'',
-                // birth_year:'',
-                // gender:'',
-                // military_service_status:'',
+               
          
         }
     },
@@ -116,3 +109,4 @@ export default {
 
 }
 </script>
+

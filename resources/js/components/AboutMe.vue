@@ -24,7 +24,7 @@
 
                     </div>
 
-                    <edit-about-me :aboutme="aboutMe" v-show="showEditForm"  v-on:cancel="showEditForm=false"></edit-about-me>
+                    <edit-about-me :about-me="aboutMe" v-show="showEditForm"  v-on:cancel="showEditForm=false"></edit-about-me>
 
 
 
@@ -47,7 +47,7 @@ export default {
     mounted() {
         axios.get('/get-about-me').then(response => {
             this.aboutMe = response.data;
-            console.log(response.data);
+            console.log(response);
 
         });
     },

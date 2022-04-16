@@ -13,21 +13,11 @@
                     v-on:mouseleave="showEditBtn=false"
                     >
                         <div class="col-12 mt-5 mb-5">
-                            <a class="skill-item" href="#">
-                                PHP
+
+                            <a v-for="skill in skills" class="skill-item" href="#">
+                                {{skill}}
                             </a>
-                            <a class="skill-item" href="#">
-                                LARAVEL
-                            </a>
-                            <a class="skill-item" href="#">
-                                HTML
-                            </a>
-                            <a class="skill-item" href="#">
-                                CSS
-                            </a>
-                            <a class="skill-item" href="#">
-                                JQUERY
-                            </a>
+                        
 
                             <button v-show="showEditBtn"  v-on:click="showEditForm=true"
                             class=" position-absolute edit-btn">
@@ -38,7 +28,7 @@
                         </div>
                     </div>
 
-                        <edit-my-skills v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-my-skills>
+                        <edit-my-skills :skills="skills" v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-my-skills>
 
 
                 </div>
@@ -49,12 +39,30 @@
 
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
             showEditBtn:false,
             showEditForm:false,
+            skills:[]
         }
+    },
+
+    mounted() {
+        axios.get('/get-skills').then(response => {
+
+            this.skills = response.data;
+            console.log(this.skills)
+        });;
+    },
+
+    methods: {
+        
+
+
+
+
     },
 }
 </script>
