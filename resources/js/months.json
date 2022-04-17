@@ -1,20 +1,50 @@
 [
     {
-        "title":"مهر"
+        "title": "فروردین",
+        "value": "farvardin"
     },
     {
-        "title":"آبان"
+        "title": "اردیبهشت",
+        "value": "ordibehesht"
     },
     {
-        "title":"آذر"
+        "title": "خرداد",
+        "value": "khordad"
     },
     {
-        "title":"دی"
+        "title": "تیر",
+        "value": "tir"
     },
     {
-        "title":"بهمن"
+        "title": "مرداد",
+        "value": "mordad"
     },
     {
-        "title":"اسفند"
+        "title": "شهریور",
+        "value": "shahrivar"
+    },
+    {
+        "title": "مهر",
+        "value": "mehr"
+    },
+    {
+        "title": "آبان",
+        "value": "aban"
+    },
+    {
+        "title": "آذر",
+        "value": "azar"
+    },
+    {
+        "title": "دی",
+        "value": "dey"
+    },
+    {
+        "title": "بهمن",
+        "value": "bahman"
+    },
+    {
+        "title": "اسفند",
+        "value": "esfand"
     }
 ]

@@ -101,7 +101,7 @@
 
 <script>
 import monthsArray from "../months.json";
-
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -120,6 +120,7 @@ export default {
     methods: {
         saveData() {
             axios.post("/save-jobs", {
+
                 "title":this.title,
                 "company":this.company ,
                 "start_month":this.start_month ,
@@ -128,8 +129,10 @@ export default {
                 "end_year":this.end_year,
                 "is_working":this.is_working,
                 "description":this.description,
+
                 }).then(Response => {
                     console.log(Response.data);
+                    this.$emit('cancel')
                 });
         },
     },

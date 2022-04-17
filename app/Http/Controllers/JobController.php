@@ -45,4 +45,35 @@ class JobController extends Controller
 
 
     }
+
+    public function UpdateJobItem(){
+
+        $job = request('job');
+
+        $job = Job::where('person_id',$job['person_id'])->first();
+
+        $job->job_title = $job['job_title'];
+        $job->company = $job['company'];
+        $job->start_month = $job['start_month'];
+        $job->end_month = $job['end_month'];
+        $job->company = $job['start_year'];
+        $job->company = $job['end_year'];
+        $job->company = $job['is_working'];
+        $job->company = $job['description'];
+        $job->save();
+
+        return ['msg' => 'successful'];
+
+    }
+
+    public function DeleteJobItem(){
+
+        $job_array = request('job');
+
+        $job = Job::find($job_array['id']);
+        $job->delete();
+        return ['msg' => 'success'];
+        
+
+    }
 }

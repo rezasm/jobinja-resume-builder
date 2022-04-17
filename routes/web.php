@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PersonController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +34,15 @@ Route::post('/save-skills',[PersonController::class,'saveSkills'])->name('save.s
 
 Route::get('/get-jobs',[JobController::class,'getJobs'])->name('get.jobs');
 Route::post('/save-jobs',[JobController::class,'saveJobs'])->name('save.jobs');
+Route::post('/update-job-item',[JobController::class,'UpdateJobItem'])->name('update.job');
+Route::post('/delete-job-item',[JobController::class,'DeleteJobItem'])->name('delete.job');
+
+Route::get('/get-educations',[EducationController::class,'getEducations'])->name('get.educations');
+Route::post('/save-education',[EducationController::class,'saveEducation'])->name('save.education');
+Route::post('/update-education-item',[EducationController::class,'UpdateEducationItem'])->name('update.education');
+Route::post('/delete-education-item',[EducationController::class,'DeleteEducationItem'])->name('delete.education');
+
+Route::get('/get-languages',[LanguageController::class,'getLanguages'])->name('get.lamguages');
+
+
+

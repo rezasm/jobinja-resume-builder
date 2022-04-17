@@ -18,8 +18,8 @@
                         <new-job-item  v-on:closenewform="showNewJobForm=false"
                          v-show="showNewJobForm"></new-job-item>
 
-                        <div class="add-job">
-                            <button class="add-job-btn" v-on:click="showNewJobForm=true"
+                        <div class="add-job" v-on:click="showNewJobForm=true">
+                            <button class="add-job-btn" 
                            >
 
                                 + ایجاد سابقه کاری
@@ -56,7 +56,7 @@ export default {
                 console.log(Response.data);
 
                 this.jobs = Response.data;
-
+                this.$emit('cancel');
 
             });
         

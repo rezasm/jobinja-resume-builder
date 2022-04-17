@@ -8,9 +8,9 @@
            <language-item v-for="language in languages" :lang="language"></language-item>
 
             <new-language-item v-on:closeForm="showNewForm=false" v-show="showNewForm"></new-language-item>
-            <div class="add-language">
+            <div class="add-language"   v-on:click="showNewForm=true">
                 <button class="add-language-btn"
-                v-on:click="showNewForm=true"
+              
                 >
                     + افزودن زبان
                 </button>
@@ -29,16 +29,31 @@
 
 <script>
 
-import languagesArray from '../languages.json'
+import axios from 'axios'
 export default {
     data() {
         return {
             
-            languages:languagesArray,
+            languages:[],
             showNewForm:false
 
 
         };
+    },
+
+    mounted() {
+
+        axios.get('/get-languages').then(Response => {
+
+            this.languages = Response.data;
+
+
+
+        });
+
+
+
+
     },
 };
 </script>

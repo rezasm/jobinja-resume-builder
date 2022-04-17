@@ -22,6 +22,8 @@ class CreateEducationsTable extends Migration
             $table->string('start_year')->nullable();
             $table->string('end_year')->nullable();
             $table->boolean('is_studying')->default(false);
+            $table->smallInteger('pos')->default(0);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

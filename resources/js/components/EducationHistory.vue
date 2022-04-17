@@ -16,9 +16,9 @@
 
                         <new-education  v-on:closeForm="showNewEducationForm=false" v-show="showNewEducationForm"></new-education>
 
-                        <div class="add-education">
+                        <div class="add-education"  v-on:click="showNewEducationForm=true"  >
                             <button 
-                            v-on:click="showNewEducationForm=true" 
+                           
                            
                             class="add-education-btn">+ ایجاد سابقه تحصیلی </button>
                         </div>
@@ -31,13 +31,27 @@
 </template>
     
 <script>
-    import educationArray from '../education.json'
+    import axios from 'axios'
 export default {
     data() {
         return {
-            educationItems:educationArray,
-            showNewEducationForm:false
+            showNewEducationForm:false,
+            educationItems:[]
         }
+    },
+
+
+    mounted() {
+        
+        axios.get('/get-educations').then(Response => {
+
+            this.educationItems=Response.data;
+
+
+
+        });
+
+
     },
 }
 </script>
