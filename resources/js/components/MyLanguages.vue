@@ -4,7 +4,7 @@
             <h5>زبان ها</h5>
         </div>
 
-            <div class="box-content languages p-0">
+            <div class="languages p-0">
            <language-item v-for="language in languages" :lang="language"></language-item>
 
             <new-language-item v-on:closeForm="showNewForm=false" v-show="showNewForm"></new-language-item>

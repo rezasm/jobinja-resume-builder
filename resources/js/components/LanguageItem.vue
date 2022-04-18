@@ -1,13 +1,13 @@
 <template>
-    <div
-        class="language-item"
+    <div 
+        class="language-item box-content"
         v-on:mouseenter="showEditButton = true"
         v-on:mouseleave="showEditButton = false"
         v-on:click="showEditForm = true"
         v-show="!showEditForm"
     >
         <h6 class="language-title">
-            {{lang.title}}:
+            {{lang.language_name}}:
             <span class="level">{{lang.level}}</span>
         </h6>
         <button class="position-absolute edit-btn" v-show="showEditButton">
@@ -16,7 +16,7 @@
         </button>
     </div>
 
-    <edit-language-item
+    <edit-language-item :language="lang"
         v-on:cancel="showEditForm = false"
         v-show="showEditForm"
     ></edit-language-item>

@@ -42,7 +42,10 @@ Route::post('/save-education',[EducationController::class,'saveEducation'])->nam
 Route::post('/update-education-item',[EducationController::class,'UpdateEducationItem'])->name('update.education');
 Route::post('/delete-education-item',[EducationController::class,'DeleteEducationItem'])->name('delete.education');
 
-Route::get('/get-languages',[LanguageController::class,'getLanguages'])->name('get.lamguages');
+Route::get('/get-languages',[LanguageController::class,'getLanguages'])->name('get.languages');
+Route::post('/add-language',[LanguageController::class,'addLanguage'])->name('add.language');
+Route::post('/update-language-item',[LanguageController::class,'updateLanguage'])->name('update.language.item');
+Route::post('/delete-language-item',[LanguageController::class,'deleteLanguage'])->name('delete.language.item');
 
 
 
