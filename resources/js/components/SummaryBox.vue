@@ -5,14 +5,16 @@
         <div class="row">
  
             <div class=" text-center avatar-col col-md-2">
-                <div class="picture-icon">
+                <div class="picture-icon" v-on:click="this.$refs.fileInput.click">
                     <i class="fa fa-solid fa-user"></i>
 
                 </div>
-                <label class="btn t mt-1 w-100 upload-image-btn" for="UploadAvatar">
+                <label class="btn t mt-1 w-100 upload-image-btn" for="UploadAvatar" ref="fileInput" >
                     آپلود عکس
                 </label>
-                <input style="display:none;" type="file" name="avatar" id="UploadAvatar">
+                <input v-on:change="fileUpload"
+                
+                style="display:none;" type="file" name="avatar" id="UploadAvatar" >
             </div>
 
             <div v-on:click="showEditForm=true" v-show="!showEditForm" class="col-md-10 summary-col position-relative">
@@ -22,12 +24,12 @@
                         <li class="fullname">
                             {{person.fullname}}
                         </li>
+                                        
                         <li>
-
                             عنوان شغلی:
                             <span>{{person.job_title}}</span>
-
                         </li>
+
                         <li>
                             وضعیت اشتغال:
                             <span>{{person.job_status}}</span>
@@ -77,11 +79,9 @@ export default {
             showEditBtn: false,
 
             showEditForm: false,
-            // fullname:"نام و نام خانوادگی",
-            // job_title:"",
-            // job_status:"",
-            // job_title:"",
-            person:[]
+
+            person:[],
+            img:''
         }
     },
                                                     
@@ -99,6 +99,12 @@ export default {
         } );
 
 
+     },
+
+     methods: {
+         fileUpload(){
+           
+         }
      },
 
 
