@@ -3,6 +3,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 import EditSummary from "./components/EditSummary.vue";
+import ImageUploader from "./components/ImageUploader.vue";
 import SummaryBox from "./components/SummaryBox.vue";
 import PersonalInfo from "./components/PersonalInfo.vue";
 import EditPersonalInfo from "./components/EditPersonalInfo.vue";
@@ -37,6 +38,7 @@ const app = createApp({
  
 
 app.component("SummaryBox",SummaryBox);
+app.component("ImageUploader",ImageUploader);
 app.component("EditSummary",EditSummary);
 app.component("PersonalInfo",PersonalInfo);
 app.component("EditPersonalInfo",EditPersonalInfo);

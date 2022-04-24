@@ -4,18 +4,7 @@
         v-on:mouseleave="showEditBtn=!showEditBtn">
         <div class="row">
  
-            <div class=" text-center avatar-col col-md-2">
-                <div class="picture-icon" v-on:click="this.$refs.fileInput.click">
-                    <i class="fa fa-solid fa-user"></i>
-
-                </div>
-                <label class="btn t mt-1 w-100 upload-image-btn" for="UploadAvatar" ref="fileInput" >
-                    آپلود عکس
-                </label>
-                <input v-on:change="fileUpload"
-                
-                style="display:none;" type="file" name="avatar" id="UploadAvatar" >
-            </div>
+                <image-uploader :image_url="person.image"></image-uploader>
 
             <div v-on:click="showEditForm=true" v-show="!showEditForm" class="col-md-10 summary-col position-relative">
 
@@ -81,7 +70,7 @@ export default {
             showEditForm: false,
 
             person:[],
-            img:''
+       
         }
     },
                                                     
@@ -90,9 +79,7 @@ export default {
     created() {
         
             axios.get('/get-summary-data').then(Response =>{
-            // this.fullname = Response.data.fullname,
-            // this.job_status = Response.data.job_status,
-            // this.job_title = Response.data.job_title
+            
             this.person = Response.data.person;
              
             
@@ -102,9 +89,7 @@ export default {
      },
 
      methods: {
-         fileUpload(){
-           
-         }
+      
      },
 
 

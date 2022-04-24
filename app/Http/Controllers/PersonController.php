@@ -15,11 +15,13 @@ class PersonController extends Controller
         $fullname = $person->fullname ?? '';
         $job_title = $person->job_title ?? '';
         $job_status = $person->job_status ?? '';
+        $image = $person->image ?? '';
         return [
             'person' =>   [
                 'fullname' => $fullname,
                 'job_title' => $job_title,
                 'job_status' => $job_status,
+                'image' => $image,
             ]
         ];
     }
@@ -154,6 +156,26 @@ class PersonController extends Controller
 
         return ['Data saved Successfully'];
 
+    }
+
+    public function saveImage(Request $request){
+
+ 
+        $file = $request->file('image')->store('avatars');
+        
+        $person = Person::where('session_id',session()->getId())->first();
+
+        if(!$person){
+            $person = new Person();
+
+            $person->session_id = session()->getId();
+            
+        }
+        
+        $person->image = $file;
+        $person->save();
+
+        return ['msg' => 'success'];
     }
 
 }
