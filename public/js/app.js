@@ -19669,19 +19669,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['image_url'],
+  props: ["src"],
   data: function data() {
     return {
+      url: null,
       showSaveBtn: false,
       image: null,
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
     };
   },
   methods: {
     fileUpload: function fileUpload(e) {
       var file = e.target.files[0];
       this.image = e.target.files[0];
-      this.image_url = URL.createObjectURL(file);
+      this.url = URL.createObjectURL(file);
       this.showSaveBtn = true;
     },
     SubmitForm: function SubmitForm(e) {
@@ -19689,9 +19690,9 @@ __webpack_require__.r(__webpack_exports__);
 
       e.preventDefault();
       var data = new FormData();
-      data.append('image', this.image);
-      data.append('csrf_token', this.csrf);
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('save-image', data).then(function (Response) {
+      data.append("image", this.image);
+      data.append("csrf_token", this.csrf);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("save-image", data).then(function (Response) {
         console.log(Response.data);
         _this.showSaveBtn = false;
       });
@@ -19699,8 +19700,8 @@ __webpack_require__.r(__webpack_exports__);
     saveImage: function saveImage() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('save-image', {
-        "file": this.url
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("save-image", {
+        file: this.url
       }).then(function (Response) {
         console.log(Response.data);
         _this2.showSaveBtn = false;
@@ -21392,12 +21393,13 @@ var _hoisted_6 = {
   type: "submit"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _this = this;
+  var _$data$url,
+      _this = this;
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$props.image_url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$props.src ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
     key: 0,
     "class": "picture-icon p-0",
-    src: $props.image_url,
+    src: (_$data$url = $data.url) !== null && _$data$url !== void 0 ? _$data$url : $props.src,
     onClick: _cache[0] || (_cache[0] = function () {
       var _this$$refs$fileInput;
 
@@ -21405,7 +21407,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 8
   /* PROPS */
-  , _hoisted_2)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$props.image_url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+  , _hoisted_2)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$props.src ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 1,
     "class": "picture-icon",
     onClick: _cache[1] || (_cache[1] = function () {
@@ -21433,13 +21435,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "UploadAvatar"
   }, null, 32
   /* HYDRATE_EVENTS */
-  ), $data.showSaveBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_6, "ذخیره")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showSaveBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+  ), $data.showSaveBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_6, " ذخیره ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showSaveBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     key: 1,
     "class": "cancel-btn",
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $data.showSaveBtn = false;
     })
-  }, "انصراف")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 32
+  }, " انصراف ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 32
   /* HYDRATE_EVENTS */
   )]);
 }
@@ -22588,10 +22590,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.showEditBtn = !$data.showEditBtn;
     })
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_image_uploader, {
-    image_url: $data.person.image
+    src: $data.person.image
   }, null, 8
   /* PROPS */
-  , ["image_url"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $data.showEditForm = true;
     }),

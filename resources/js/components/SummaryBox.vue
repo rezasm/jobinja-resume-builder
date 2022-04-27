@@ -4,7 +4,7 @@
         v-on:mouseleave="showEditBtn=!showEditBtn">
         <div class="row">
  
-                <image-uploader :image_url="person.image"></image-uploader>
+                <image-uploader :src="person.image"></image-uploader>
 
             <div v-on:click="showEditForm=true" v-show="!showEditForm" class="col-md-10 summary-col position-relative">
 
