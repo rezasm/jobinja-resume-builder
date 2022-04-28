@@ -107,7 +107,8 @@ export default {
             axios.post('/delete-education-item',{"education":this.education}).then(Response => {
 
                 this.$emit('cancel');
-
+                this.$emit('deleteItem');
+                
 
             });
 

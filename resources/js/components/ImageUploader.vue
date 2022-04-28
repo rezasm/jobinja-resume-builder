@@ -1,7 +1,8 @@
 <template>
     <div class="text-center avatar-col col-md-2">
         <img
-            class="picture-icon p-0"
+            
+            class="picture-icon bg-transparent border-0 p-0"
             :src="url ?? src"
             v-if="src"
             v-on:click="this.$refs.fileInput.click"
@@ -15,6 +16,7 @@
         </div>
 
         <label
+ 
             class="btn t mt-1 w-100 upload-image-btn"
             for="UploadAvatar"
             ref="fileInput"

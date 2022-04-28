@@ -76,11 +76,10 @@
 <script>
 import degreesArray from '../degree.json';
 import axios from 'axios';
-export default {
 
-        data() {
-            return {
-                degrees:degreesArray,
+function initialState(){
+    return {
+                   degrees:degreesArray,
                 field:'',
                 university:'',
                 degreeOption:'',
@@ -88,7 +87,12 @@ export default {
                 end_year:'',
                 is_studying:0,
                 description:''
-            }
+    }
+}
+export default {
+
+        data() {
+            return initialState();
         },
 
         methods: {
@@ -109,6 +113,9 @@ export default {
 
                     console.log(Response.data);
                     this.$emit('closeForm');
+                    this.$emit('updatedata');
+
+                    Object.assign(this.$data,initialState());
 
 
                 });

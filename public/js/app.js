@@ -19289,6 +19289,12 @@ __webpack_require__.r(__webpack_exports__);
       _this.aboutMe = response.data;
       console.log(response);
     });
+  },
+  methods: {
+    updateValue: function updateValue(value) {
+      alert(1);
+      this.aboutMe = value;
+    }
   }
 });
 
@@ -19323,6 +19329,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
 
         _this.$emit('cancel');
+
+        _this.$emit('changevalue', _this.aboutMe);
       });
     }
   },
@@ -19374,6 +19382,8 @@ __webpack_require__.r(__webpack_exports__);
         "education": this.education
       }).then(function (Response) {
         _this2.$emit('cancel');
+
+        _this2.$emit('deleteItem');
       });
     }
   }
@@ -19411,9 +19421,9 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default().post("/delete-job-item", {
         job: this.job
       }).then(function (Response) {
-        console.log(Response.data);
-
         _this.$emit("cancel");
+
+        _this.$emit("joblistupdate");
       });
     },
     saveData: function saveData() {
@@ -19422,9 +19432,9 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default().post("/update-job-item", {
         job: this.job
       }).then(function (Response) {
-        console.log(Response);
-
         _this2.$emit("cancel");
+
+        _this2.$emit('joblistupdate');
       });
     }
   }
@@ -19620,12 +19630,17 @@ __webpack_require__.r(__webpack_exports__);
       educationItems: []
     };
   },
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    fetchEducationList: function fetchEducationList() {
+      var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-educations').then(function (Response) {
-      _this.educationItems = Response.data;
-    });
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/get-educations").then(function (Response) {
+        _this.educationItems = Response.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.fetchEducationList();
   }
 });
 
@@ -19724,7 +19739,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['job'],
+  props: ["job"],
   data: function data() {
     return {
       showEditForm: false,
@@ -19781,14 +19796,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    var _this = this;
+    this.fetchJobs();
+  },
+  methods: {
+    fetchJobs: function fetchJobs() {
+      var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get-jobs').then(function (Response) {
-      console.log(Response.data);
-      _this.jobs = Response.data;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/get-jobs").then(function (Response) {
+        console.log(Response.data);
+        _this.jobs = Response.data;
 
-      _this.$emit('cancel');
-    });
+        _this.$emit("cancel");
+      });
+    }
   }
 });
 
@@ -19878,18 +19898,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
 
+
+function initialState() {
+  return {
+    degrees: _degree_json__WEBPACK_IMPORTED_MODULE_0__,
+    field: '',
+    university: '',
+    degreeOption: '',
+    start_year: '',
+    end_year: '',
+    is_studying: 0,
+    description: ''
+  };
+}
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {
-      degrees: _degree_json__WEBPACK_IMPORTED_MODULE_0__,
-      field: '',
-      university: '',
-      degreeOption: '',
-      start_year: '',
-      end_year: '',
-      is_studying: 0,
-      description: ''
-    };
+    return initialState();
   },
   methods: {
     saveData: function saveData() {
@@ -19907,6 +19932,10 @@ __webpack_require__.r(__webpack_exports__);
         console.log(Response.data);
 
         _this.$emit('closeForm');
+
+        _this.$emit('updatedata');
+
+        Object.assign(_this.$data, initialState());
       });
     }
   }
@@ -19930,19 +19959,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
 
+
+function initialState() {
+  return {
+    months: _months_json__WEBPACK_IMPORTED_MODULE_0__,
+    title: "",
+    company: "",
+    start_month: "",
+    start_year: "",
+    end_month: "",
+    end_year: "",
+    is_working: "",
+    description: ""
+  };
+}
+
+;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {
-      months: _months_json__WEBPACK_IMPORTED_MODULE_0__,
-      title: "",
-      company: "",
-      start_month: "",
-      start_year: "",
-      end_month: "",
-      end_year: "",
-      is_working: "",
-      description: ""
-    };
+    return initialState();
   },
   methods: {
     saveData: function saveData() {
@@ -19958,9 +19993,11 @@ __webpack_require__.r(__webpack_exports__);
         "is_working": this.is_working,
         "description": this.description
       }).then(function (Response) {
-        console.log(Response.data);
+        _this.$emit('closenewform');
 
-        _this.$emit('cancel');
+        _this.$emit('newjob');
+
+        Object.assign(_this.$data, initialState());
       });
     }
   }
@@ -20145,10 +20182,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "about-me": $data.aboutMe,
     onCancel: _cache[4] || (_cache[4] = function ($event) {
       return $data.showEditForm = false;
-    })
+    }),
+    onChangevalue: $options.updateValue
   }, null, 8
   /* PROPS */
-  , ["about-me"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
+  , ["about-me", "onChangevalue"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditForm]])]);
 }
 
 /***/ }),
@@ -21231,7 +21269,7 @@ var _hoisted_1 = {
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "box-header"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, " سوابق تحصیلی ")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "سوابق تحصیلی")], -1
 /* HOISTED */
 );
 
@@ -21241,7 +21279,7 @@ var _hoisted_3 = {
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "add-education-btn"
-}, "+ ایجاد سابقه تحصیلی ", -1
+}, "+ ایجاد سابقه تحصیلی", -1
 /* HOISTED */
 );
 
@@ -21253,19 +21291,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.educationItems, function (education) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_education_item, {
+      onUpdateList: $options.fetchEducationList,
       education: education
     }, null, 8
     /* PROPS */
-    , ["education"]);
+    , ["onUpdateList", "education"]);
   }), 256
   /* UNKEYED_FRAGMENT */
   )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_new_education, {
     onCloseForm: _cache[0] || (_cache[0] = function ($event) {
       return $data.showNewEducationForm = false;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showNewEducationForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    }),
+    onUpdatedata: $options.fetchEducationList
+  }, null, 8
+  /* PROPS */
+  , ["onUpdatedata"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showNewEducationForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "add-education",
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $data.showNewEducationForm = true;
@@ -21331,20 +21371,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[2] || (_cache[2] = function ($event) {
       return $data.showEditForm = true;
     })
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.education.field), 1
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.education.field_title), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.education.university), 1
   /* TEXT */
-  ), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.education.startyear), 1
+  ), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.education.start_year), 1
   /* TEXT */
-  ), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.education.endyear), 1
+  ), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.education.end_year), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_5, _hoisted_8, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showEditBtn]])], 544
   /* HYDRATE_EVENTS, NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_education_item, {
-    onCancel: _cache[3] || (_cache[3] = function ($event) {
+    onDeleteItem: _cache[3] || (_cache[3] = function ($event) {
+      return _ctx.$emit('updateList');
+    }),
+    onCancel: _cache[4] || (_cache[4] = function ($event) {
       return $data.showEditForm = false;
     }),
     education: $props.education
@@ -21398,7 +21441,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$props.src ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
     key: 0,
-    "class": "picture-icon p-0",
+    "class": "picture-icon bg-transparent border-0 p-0",
     src: (_$data$url = $data.url) !== null && _$data$url !== void 0 ? _$data$url : $props.src,
     onClick: _cache[0] || (_cache[0] = function () {
       var _this$$refs$fileInput;
@@ -21483,7 +21526,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ویرایش ");
 
 var _hoisted_7 = [_hoisted_5, _hoisted_6];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21522,6 +21565,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.showEditForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_job_item, {
     onCancel: _cache[4] || (_cache[4] = function ($event) {
       return $data.showEditForm = false;
+    }),
+    onJoblistupdate: _cache[5] || (_cache[5] = function ($event) {
+      return _ctx.$emit('updatejobs');
     }),
     job: $props.job
   }, null, 8
@@ -21634,7 +21680,7 @@ var _hoisted_3 = {
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "add-job-btn"
-}, " + ایجاد سابقه کاری ", -1
+}, "+ ایجاد سابقه کاری", -1
 /* HOISTED */
 );
 
@@ -21646,19 +21692,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.jobs, function (job) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_job_item, {
+      onUpdatejobs: $options.fetchJobs,
       job: job
     }, null, 8
     /* PROPS */
-    , ["job"]);
+    , ["onUpdatejobs", "job"]);
   }), 256
   /* UNKEYED_FRAGMENT */
   )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_new_job_item, {
     onClosenewform: _cache[0] || (_cache[0] = function ($event) {
       return $data.showNewJobForm = false;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showNewJobForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    }),
+    onNewjob: $options.fetchJobs
+  }, null, 8
+  /* PROPS */
+  , ["onNewjob"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.showNewJobForm]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "add-job",
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $data.showNewJobForm = true;
@@ -21928,20 +21976,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "input-field",
     type: "text",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.field = $event;
+      return _ctx.field = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.field]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.field]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     name: "university",
     "class": "input-field",
     type: "text",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $data.university = $event;
+      return _ctx.university = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.university]])]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.degrees, function (degree) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.university]])]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.degrees, function (degree) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(degree.title), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -21949,47 +21997,47 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       name: "degree",
       value: degree.value,
       "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-        return $data.degreeOption = $event;
+        return _ctx.degreeOption = $event;
       })
     }, null, 8
     /* PROPS */
-    , _hoisted_11), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.degreeOption]])]);
+    , _hoisted_11), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, _ctx.degreeOption]])]);
   }), 256
   /* UNKEYED_FRAGMENT */
   ))]), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "class": "input-field",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $data.start_year = $event;
+      return _ctx.start_year = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.start_year]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.start_year]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "class": "input-field",
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
-      return $data.end_year = $event;
+      return _ctx.end_year = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.end_year]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.end_year]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "checkbox",
     "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
-      return $data.is_studying = $event;
+      return _ctx.is_studying = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.is_studying]]), _hoisted_20])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, _ctx.is_studying]]), _hoisted_20])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     name: "description",
     id: "",
     cols: "30",
     rows: "5",
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
-      return $data.description = $event;
+      return _ctx.description = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[7] || (_cache[7] = function ($event) {
       return _ctx.$emit('closeForm');
     }),
@@ -22134,20 +22182,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "input-field",
     type: "text",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.title = $event;
+      return _ctx.title = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.title]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     name: "company",
     "class": "input-field",
     type: "text",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $data.company = $event;
+      return _ctx.company = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.company]])]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", _hoisted_11, [_hoisted_12, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.months, function (month) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.company]])]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", _hoisted_11, [_hoisted_12, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.months, function (month) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(month.title), 1
     /* TEXT */
     );
@@ -22155,13 +22203,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* UNKEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $data.start_year = $event;
+      return _ctx.start_year = $event;
     }),
     "class": "input-field",
     type: "text"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.start_year]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", _hoisted_18, [_hoisted_19, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.months, function (month) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.start_year]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", _hoisted_18, [_hoisted_19, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.months, function (month) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(month.title), 1
     /* TEXT */
     );
@@ -22169,24 +22217,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* UNKEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $data.end_year = $event;
+      return _ctx.end_year = $event;
     }),
     "class": "input-field",
     type: "text"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.end_year]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.end_year]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
-      return $data.is_working = $event;
+      return _ctx.is_working = $event;
     }),
     type: "checkbox",
     name: "working",
     id: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.is_working]]), _hoisted_23])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, _ctx.is_working]]), _hoisted_23])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
-      return $data.description = $event;
+      return _ctx.description = $event;
     }),
     name: "description",
     id: "",
@@ -22194,7 +22242,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     rows: "10"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[6] || (_cache[6] = function ($event) {
       return _ctx.$emit('closenewform');
     }),

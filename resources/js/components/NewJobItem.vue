@@ -101,11 +101,11 @@
 
 <script>
 import monthsArray from "../months.json";
-import axios from 'axios'
-export default {
-    data() {
-        return {
-            months: monthsArray,
+import axios from 'axios';
+
+function initialState(){
+    return {    
+           months: monthsArray,
             title: "",
             company: "",
             start_month: "",
@@ -114,7 +114,13 @@ export default {
             end_year: "",
             is_working: "",
             description: "",
-        };
+    }
+};
+
+
+export default {
+    data() {
+        return initialState();
     },
 
     methods: {
@@ -131,8 +137,10 @@ export default {
                 "description":this.description,
 
                 }).then(Response => {
-                    console.log(Response.data);
-                    this.$emit('cancel')
+                 
+                    this.$emit('closenewform');
+                    this.$emit('newjob');
+                     Object.assign(this.$data,initialState());
                 });
         },
     },

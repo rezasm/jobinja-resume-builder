@@ -114,8 +114,9 @@ export default {
             axios
                 .post("/delete-job-item", { job: this.job })
                 .then(Response => {
-                    console.log(Response.data);
+             
                     this.$emit("cancel");
+                    this.$emit("joblistupdate");
 
                 });
         },
@@ -124,8 +125,9 @@ export default {
             axios
                 .post("/update-job-item", { job: this.job })
                 .then((Response) => {
-                    console.log(Response);
+               
                     this.$emit("cancel");
+                    this.$emit('joblistupdate')
                 });
         },
     },

@@ -24,7 +24,10 @@
 
                     </div>
 
-                    <edit-about-me :about-me="aboutMe" v-show="showEditForm"  v-on:cancel="showEditForm=false"></edit-about-me>
+                    <edit-about-me :about-me="aboutMe" v-show="showEditForm"  
+                    v-on:cancel="showEditForm=false" 
+                    v-on:changevalue="updateValue"
+                    ></edit-about-me>
 
 
 
@@ -50,7 +53,18 @@ export default {
             console.log(response);
 
         });
+
+
     },
+    methods: {
+            updateValue(value){
+        alert(1);
+        this.aboutMe = value;
+
+
+    }
+    },
+ 
 
 
 }

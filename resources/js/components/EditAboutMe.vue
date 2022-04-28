@@ -38,13 +38,14 @@ export default {
     methods: {
         saveData:function(){
 
-
             axios.post('/save-about-me',{
                 "about_me":this.aboutMe
             })
             .then(response => {
                 console.log(response.data);
-                this.$emit('cancel')
+                this.$emit('cancel');
+                this.$emit('changevalue',this.aboutMe);
+
 
             });
 

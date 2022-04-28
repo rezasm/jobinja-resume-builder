@@ -7,12 +7,12 @@
 
       v-show="!showEditForm"
       >
-                            <h6 class="field-title">{{education.field}}</h6>
+                            <h6 class="field-title">{{education.field_title}}</h6>
                             <span class="university">{{education.university}}</span>
                             <span>از</span>
-                            <span>{{education.startyear}}</span>
+                            <span>{{education.start_year}}</span>
                             <span>تا</span>
-                            <span>{{education.endyear}}</span>
+                            <span>{{education.end_year}}</span>
 
 
                             <button v-show="showEditBtn"
@@ -22,7 +22,9 @@
                                 ویرایش</button>
                         </div>    
                         
-                        <edit-education-item v-on:cancel="showEditForm=false" :education="education" v-show="showEditForm"></edit-education-item>
+                        <edit-education-item 
+                        v-on:deleteItem="$emit('updateList')"
+                        v-on:cancel="showEditForm=false" :education="education" v-show="showEditForm"></edit-education-item>
                         
 
 </template>
