@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PersonDataSaved;
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class PersonController extends Controller
 {
+
+   
+
     public function getSummaryData()
     {
 
-        $person = Person::where('session_id', session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         $fullname = $person->fullname ?? '';
         $job_title = $person->job_title ?? '';
@@ -28,21 +33,22 @@ class PersonController extends Controller
 
     public function saveSummaryData()
     {
-
+        
         $name = request('name');
         $job_status = request('job_status');
         $job_title = request('job_title');
 
-        $session_id = session()->getId();
+   
 
         $person = Person::updateOrCreate(
-            ['session_id' => $session_id],
+            ['id' => session('person_id')],
             [
                 'fullname' => $name,
                 'job_title' => $job_title,
                 'job_status' => $job_status,
             ]
         );
+        PersonDataSaved::dispatch($person->id);
 
         return ['msg' => 'Data Saved Successfully'];
     }
@@ -50,7 +56,7 @@ class PersonController extends Controller
 
     public function getPersonalInfo(){
 
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
 
 
@@ -92,14 +98,14 @@ class PersonController extends Controller
         $person->gender = $new_data['gender']; 
         $person->military_service_status = $new_data['military_service_status'];    
         $person->save();
-
+        PersonDataSaved::dispatch($person->id);
         return ['msg' => 'Data Saved Successfully'];
 
     }
 
     public function getAboutMe(){
 
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
 
         
@@ -122,12 +128,12 @@ class PersonController extends Controller
 
         $person->about_me = $about_me;
         $person->save();
-
+        PersonDataSaved::dispatch($person->id);
     }
 
     public function getSkills(){
 
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         $skills_array = explode(',',$person->skills);
 
@@ -153,7 +159,7 @@ class PersonController extends Controller
 
         $person->skills = $skilld_str;
         $person->save();
-
+        PersonDataSaved::dispatch($person->id);
         return ['Data saved Successfully'];
 
     }
@@ -174,6 +180,8 @@ class PersonController extends Controller
         
         $person->image = $file;
         $person->save();
+
+        PersonDataSaved::dispatch($person->id);
 
         return ['msg' => 'success'];
     }

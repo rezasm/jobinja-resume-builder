@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PersonDataSaved;
 use App\Models\Education;
 use App\Models\Job;
 use App\Models\Person;
@@ -11,7 +12,7 @@ class EducationController extends Controller
 {
     public function getEducations()
     {
-        $person = Person::where('session_id', session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         $educations = Education::where('person_id', $person->id)->get();
 
@@ -26,8 +27,8 @@ class EducationController extends Controller
 
         if (!$person) {
             $person = new Person();
-            $person->session_id = session()->getId();
             $person->save();
+            PersonDataSaved::dispatch($person->id);
         }
 
         $education = new Education();

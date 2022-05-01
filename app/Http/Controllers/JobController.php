@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PersonDataSaved;
 use App\Models\Job;
 use App\Models\Person;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ class JobController extends Controller
 {
     public function getJobs(){
 
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
 
         $jobs = Job::where('person_id',$person->id)->get();
@@ -26,7 +27,8 @@ class JobController extends Controller
         if(!$person){
             $person = new Person();
 
-            $person->session_id = session()->getId();
+            $person->save();            
+            PersonDataSaved::dispatch($person->id);
         }
 
         $job = New Job();

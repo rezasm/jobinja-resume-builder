@@ -16,7 +16,6 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->string('session_id')->nullable();
             $table->string('fullname')->nullable();
             $table->string('job_title')->nullable();
             $table->string('job_status')->nullable();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PersonDataSaved;
 use App\Models\Language;
 use App\Models\Person;
 use Illuminate\Http\Request;
@@ -13,12 +14,12 @@ class LanguageController extends Controller
     public function getLanguages()
     {
 
-        $person = Person::where('session_id', session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if (!$person) {
             $person = new Person();
-            $person->session_id = session()->getId();
             $person->save();
+            PersonDataSaved::dispatch($person->id);
         }
 
         $languages = Language::where('person_id', $person->id)->get();
@@ -33,7 +34,7 @@ class LanguageController extends Controller
         $language_name = request('language');
         $level = request('level');
 
-        $person = Person::where('session_id', session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if (!$person) {
             $person = new Person();
