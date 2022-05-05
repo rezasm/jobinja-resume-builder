@@ -80,12 +80,11 @@ class PersonController extends Controller
 
     public function savePersonalInfo(){
         
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if(!$person){
             $person = new Person();
-            $person->session_id = session()->getId();
-        }
+         }
 
         $new_data = request('newPerson'); // array
        
@@ -116,7 +115,7 @@ class PersonController extends Controller
     }
     public function saveAboutMe(){
 
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if(!$person){
             $person = new Person();
@@ -148,13 +147,10 @@ class PersonController extends Controller
 
         $skilld_str = implode(',',$skills);
 
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if(!$person){
-            $person = new Person();
-
-            $person->session_id = session()->getId();
-            
+            $person = new Person();    
         }
 
         $person->skills = $skilld_str;
@@ -169,13 +165,10 @@ class PersonController extends Controller
  
         $file = $request->file('image')->store('avatars');
         
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if(!$person){
-            $person = new Person();
-
-            $person->session_id = session()->getId();
-            
+            $person = new Person();           
         }
         
         $person->image = $file;

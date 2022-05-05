@@ -23,7 +23,7 @@ class EducationController extends Controller
 
     public function saveEducation()
     {
-        $person = Person::where('session_id', session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if (!$person) {
             $person = new Person();

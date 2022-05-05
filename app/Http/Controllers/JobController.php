@@ -22,7 +22,7 @@ class JobController extends Controller
 
     public function saveJobs(){
 
-        $person = Person::where('session_id',session()->getId())->first();
+        $person = Person::find(session('person_id'));
 
         if(!$person){
             $person = new Person();

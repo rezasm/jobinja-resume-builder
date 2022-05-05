@@ -38,11 +38,9 @@ class LanguageController extends Controller
 
         if (!$person) {
             $person = new Person();
-            $person->session_id = session()->getId();
             $person->save();
+            PersonDataSaved::dispatch($person->id);
         }
-
-
         $language = new Language();
         $language->person_id = $person->id;
         $language->language_name = $language_name;
