@@ -4,6 +4,7 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PersonController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,5 +51,8 @@ Route::post('/add-language',[LanguageController::class,'addLanguage'])->name('ad
 Route::post('/update-language-item',[LanguageController::class,'updateLanguage'])->name('update.language.item');
 Route::post('/delete-language-item',[LanguageController::class,'deleteLanguage'])->name('delete.language.item');
 
+
+//resume html
+Route::get('/resume',[PDFController::class,'preview'])->name('resume.preview');
 
 

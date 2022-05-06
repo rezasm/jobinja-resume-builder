@@ -19,11 +19,13 @@
                         <li>
                             عنوان شغلی:
                             <span>{{person.job_title}}</span>
+                            <!-- <span>{{message.better_job}}</span> -->
                         </li>
 
                         <li>
                             وضعیت اشتغال:
-                            <span>{{person.job_status}}</span>
+                            <span>{{$t('hello')}}</span>
+                            <!-- <span>{{$t("person.job_status")}}</span> -->
                         </li>
                         <li>
                             آخرین شرکت:ایران خودرو زیبایی
@@ -62,9 +64,26 @@
 
 </template>
 
+
+<i18n>
+
+{
+
+    "en": {
+        "hello":"hello job"
+    },
+    "fa": {
+        "hello":"به دنبال شغل بهتر"
+    }
+
+
+
+
+}
+
+</i18n>
 <script>
 import axios from 'axios';
-
 
 export default {
      
@@ -97,6 +116,7 @@ export default {
       
      },
 
+    
 
 
 

@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import { createI18n } from 'vue-i18n'
 
 import EditSummary from "./components/EditSummary.vue";
 import ImageUploader from "./components/ImageUploader.vue";
@@ -37,6 +38,28 @@ const app = createApp({
 });
  
 
+const messages = {
+    en: {
+      message: {
+        better_job: 'better_job'
+      }
+    },
+    fa: {
+      message: {
+        better_job: 'به دنبال شغل بهتر',
+        hello: 'به دنبال شغل بهتر',
+      }
+    }
+  }
+
+
+const i18n = createI18n({
+    locale: 'fa', // set locale
+    fallbackLocale: 'en', // set fallback locale
+    messages, // set locale messages
+   
+  })
+
 app.component("SummaryBox",SummaryBox);
 app.component("ImageUploader",ImageUploader);
 app.component("EditSummary",EditSummary);
@@ -60,6 +83,7 @@ app.component("EditLanguageItem",EditLanguageItem);
 app.component("NewLanguageItem",NewLanguageItem);
 
 app.use(VueAxios, axios) 
+app.use(i18n) 
 app.mount('#root');
 
   

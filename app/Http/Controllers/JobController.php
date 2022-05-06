@@ -50,20 +50,19 @@ class JobController extends Controller
 
     public function UpdateJobItem(){
 
-        $job = request('job');
+        $job_new = request('new_data');
 
-        $job = Job::where('person_id',$job['person_id'])->first();
+        $job = Job::where('person_id',$job_new['person_id'])->first();
 
-        $job->job_title = $job['job_title'];
-        $job->company = $job['company'];
-        $job->start_month = $job['start_month'];
-        $job->end_month = $job['end_month'];
-        $job->company = $job['start_year'];
-        $job->company = $job['end_year'];
-        $job->company = $job['is_working'];
-        $job->company = $job['description'];
+        $job->job_title = $job_new['job_title'];
+        $job->company = $job_new['company'];
+        $job->start_month = $job_new['start_month'];
+        $job->end_month = $job_new['end_month'];
+        $job->start_year = $job_new['start_year'];
+        $job->end_year = $job_new['end_year'];
+        $job->is_working = $job_new['is_working'];
+        $job->description = $job_new['description'];
         $job->save();
-
         return ['msg' => 'successful'];
 
     }

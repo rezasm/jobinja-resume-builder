@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Vazir';
+    src:  url('fonts/Vazir-Regular.woff2') format('woff2'),
+    url('fonts/Vazir-Regular.woff') format('woff'),
+    url('fonts/Vazir-Regular.eot') format('eot'),
+    url('fonts/Vazir-Regular.woff') format('woff');
+
+}
+
+*,body{
+    direction: rtl;
+}
+h1,h2, div, p{
+    font-family: Vazir;
+}
+
+.container{
+    width: auto;
+}
+.column{
+    float: right;
+
+}
+.sidebar{
+    background-color: #e8e8e8;
+    width: 30%;
+    padding: 10px;
+}
+.main{
+    width: 800px;
+    padding: 20px;
+}
+.container::after{
+    clear: both;
+}
+
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+
+.text-left{
+    text-align: left;
+}
+
+ul.personal-info{
+    list-style: none;
+}
+
+.p-infp-title::after{
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+    display: block;
+}
+h3::after{
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+    display: block;
+}
+
+.personal-info .title{
+    font-weight: 600;
+    color: gray;
+}
+
+.main .about p{
+    word-wrap: break-word;
+}
+

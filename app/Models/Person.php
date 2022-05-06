@@ -12,5 +12,8 @@ class Person extends Model
     protected $table = 'people';
     protected $guarded = [];
 
+    public function jobs(){
+        return $this->hasMany(Job::class,'person_id');
+    }
 
 }

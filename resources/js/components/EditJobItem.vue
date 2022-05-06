@@ -27,7 +27,10 @@
                 <div class="col-lg-4">
                     <select name="" id="" v-model="job.start_month">
                         <option>ماه شروع همکاری</option>
-                        <option v-for="month in months" value="{{month.value}}">
+                        <option 
+                        
+                        v-for="month in months" 
+                      >
                             {{ month.title }}
                         </option>
                     </select>
@@ -36,7 +39,7 @@
                     <input
                         class="input-field"
                         type="text"
-                        :value="job.start_year"
+                        v-model="job.start_year"
                     />
                 </div>
             </div>
@@ -46,7 +49,7 @@
                 <div class="col-lg-4">
                     <select name="" id="" v-model="job.end_month">
                         <option>ماه پایان همکاری</option>
-                        <option v-for="month in months" value="{{month.value}}">
+                        <option v-for="month in months">
                             {{ month.title }}
                         </option>
                     </select>
@@ -55,15 +58,17 @@
                     <input
                         class="input-field"
                         type="text"
-                        :value="job.end_year"
+                        v-model="job.end_year"
                     />
                 </div>
                 <div class="col-lg-2">
                     <input
+                   
                         type="checkbox"
                         name="working"
                         id=""
                         v-model="is_working"
+                        
                     />
                     <label for="">هنوز مشغولم</label>
                 </div>
@@ -76,7 +81,7 @@
                     id=""
                     cols="30"
                     rows="10"
-                    v-model="is_working"
+                    
                 ></textarea>
             </div>
 
@@ -106,6 +111,9 @@ export default {
     data() {
         return {
             months: monthsArray,
+            is_working:Boolean(this.job.is_working),
+            
+            
         };
     },
 
@@ -123,7 +131,7 @@ export default {
 
         saveData() {
             axios
-                .post("/update-job-item", { job: this.job })
+                .post("/update-job-item", { "new_data": this.job })
                 .then((Response) => {
                
                     this.$emit("cancel");
