@@ -3,7 +3,7 @@
         <img
             
             class="picture-icon bg-transparent border-0 p-0"
-            :src="url ?? src"
+            :src="src"
             v-if="src"
             v-on:click="this.$refs.fileInput.click"
         />

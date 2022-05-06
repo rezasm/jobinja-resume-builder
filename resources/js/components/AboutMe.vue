@@ -5,6 +5,8 @@
 
                             درباره من</h5>
                     </div>
+
+                    <transition>
                     <div v-on:mouseenter="showEditBtn=true" v-on:mouseleave="showEditBtn=false"
                     v-show="!showEditForm" v-on:click="showEditForm=true" 
                      class="box-content"
@@ -23,11 +25,16 @@
                             ویرایش</button>
 
                     </div>
+                    
+                    </transition>
 
+    <transition>
+    
                     <edit-about-me :about-me="aboutMe" v-show="showEditForm"  
                     v-on:cancel="showEditForm=false" 
                     v-on:changevalue="updateValue"
                     ></edit-about-me>
+    </transition>
 
 
 
@@ -58,7 +65,7 @@ export default {
     },
     methods: {
             updateValue(value){
-        alert(1);
+      
         this.aboutMe = value;
 
 

@@ -339,3 +339,18 @@ a{
     font-weight: 500;
 
   }
+
+ 
+.v-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.v-enter-active{
+transition: opacity 0.9s ease;
+
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}

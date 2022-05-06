@@ -1,5 +1,6 @@
 <template>
 
+    <transition>
       <div class="field-item box-content"
       v-on:mouseenter="showEditBtn=true"
       v-on:mouseleave="showEditBtn=false"
@@ -21,11 +22,16 @@
 
                                 ویرایش</button>
                         </div>    
+    
+    </transition>
+                        
+                        <transition>
                         
                         <edit-education-item 
                         v-on:deleteItem="$emit('updateList')"
                         v-on:cancel="showEditForm=false" :education="education" v-show="showEditForm"></edit-education-item>
                         
+                        </transition>
 
 </template>
 

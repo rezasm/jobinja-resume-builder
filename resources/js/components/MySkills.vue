@@ -6,7 +6,7 @@
                             مهارت های حرفه ای
                         </h5>
                     </div>
-
+                    <transition>
                     <div v-show="!showEditForm" 
                     class="box-content" v-on:click="showEditForm=true" 
                     v-on:mouseenter="showEditBtn=true"
@@ -27,8 +27,13 @@
 
                         </div>
                     </div>
+                    
+                    </transition>
 
+                        <transition>
+                        
                         <edit-my-skills :skills="skills" v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-my-skills>
+                        </transition>
 
 
                 </div>

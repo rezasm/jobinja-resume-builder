@@ -12,11 +12,13 @@
 
             ></education-item>
 
+            <transition>
             <new-education
                 v-on:closeForm="showNewEducationForm = false"
                 v-show="showNewEducationForm"
                 v-on:updatedata="fetchEducationList"
             ></new-education>
+            </transition>
 
             <div class="add-education" v-on:click="showNewEducationForm = true">
                 <button class="add-education-btn">+ ایجاد سابقه تحصیلی</button>

@@ -52,6 +52,7 @@ export default {
             }).then(Response => {
                 console.log(Response.data);
                 this.$emit('closeForm');
+                this.$emit('update');
             });
 
 

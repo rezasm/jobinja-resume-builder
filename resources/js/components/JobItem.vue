@@ -24,13 +24,15 @@
             ویرایش
         </button>
     </div>
-
+    <transition>
     <edit-job-item
         v-show="showEditForm"
         v-on:cancel="showEditForm = false"
         v-on:joblistupdate="$emit('updatejobs')"
         :job="job"
     ></edit-job-item>
+    
+    </transition>
 </template>
 
 <script>

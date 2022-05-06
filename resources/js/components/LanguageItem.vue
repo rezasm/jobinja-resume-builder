@@ -1,4 +1,6 @@
 <template>
+
+<transition>
     <div 
         class="language-item box-content"
         v-on:mouseenter="showEditButton = true"
@@ -16,10 +18,15 @@
         </button>
     </div>
 
+</transition>
+
+    <transition>
+    
     <edit-language-item :language="lang"
         v-on:cancel="showEditForm = false"
         v-show="showEditForm"
     ></edit-language-item>
+    </transition>
 </template>
 
 <script>

@@ -8,8 +8,13 @@
                 اطلاعات فردی
             </h5>
         </div>
-            <edit-personal-info :person="person" v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-personal-info>
 
+        <transition>
+            <edit-personal-info :person="person" v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-personal-info>
+        
+        </transition>
+        <transition>
+        
         <div v-show="!showEditForm" class="box-content" v-on:click="showEditForm=true" 
                v-on:mouseenter="showEditBtn=!showEditBtn"
           v-on:mouseleave="showEditBtn=!showEditBtn"
@@ -60,6 +65,7 @@
                 ویرایش
             </button>
         </div>
+        </transition>
     </div>
 
 

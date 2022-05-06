@@ -6,6 +6,8 @@
  
                 <image-uploader :src="person.image"></image-uploader>
 
+            <transition>
+            
             <div v-on:click="showEditForm=true" v-show="!showEditForm" class="col-md-10 summary-col position-relative">
 
                 <div class="w-100 summary-list-wrapper">
@@ -44,9 +46,12 @@
 
                     ویرایش</button>
             </div>
-
+            </transition>
+            <transition>
             <edit-summary :person="person"
              v-show="showEditForm" v-on:cancel="showEditForm=false"></edit-summary> 
+            
+            </transition>
  
   
 

@@ -72,6 +72,7 @@ export default {
 
                   console.log(Response.data);
                this.$emit('cancel');
+               this.$emit('update');
 
 
             });
