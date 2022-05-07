@@ -10,10 +10,11 @@
       >
                             <h6 class="field-title">{{education.field_title}}</h6>
                             <span class="university">{{education.university}}</span>
-                            <span>از</span>
-                            <span>{{education.start_year}}</span>
-                            <span>تا</span>
-                            <span>{{education.end_year}}</span>
+                            <span> --- </span>
+                            <span> از </span>
+                            <span> {{education.start_year}} </span>
+                            <span> تا </span>
+                            <span> {{education.end_year}} </span>
 
 
                             <button v-show="showEditBtn"

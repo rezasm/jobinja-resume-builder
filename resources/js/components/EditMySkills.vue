@@ -10,7 +10,7 @@
            
         </div>
         <div class="col-12 mt-5">
-            <input class="w-25" type="text" name="skill_title" v-model="skill">
+            <input class="w-25" type="text" name="skill_title" v-model="newSkill">
             <button v-on:click="addSkill" type="button" class="add-btn">+</button>
         </div>
         <div class="col-sm-12 text-left p-5">
@@ -29,14 +29,15 @@ export default {
     data(){
         return{
 
-           
+           newSkill:''
 
         }
     },
     methods:{
 
         addSkill(){
-            this.skills.push(this.skill);
+            this.skills.push(this.newSkill);
+            this.newSkill = '';
         },
         RemoveSkill(index){
     

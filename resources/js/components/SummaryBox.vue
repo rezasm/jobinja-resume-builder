@@ -24,8 +24,7 @@
 
                         <li>
                             وضعیت اشتغال:
-                            <span>{{$t('hello')}}</span>
-                            <!-- <span>{{$t("person.job_status")}}</span> -->
+                            <span>{{person.job_status}}</span>
                         </li>
                         <li>
                             آخرین شرکت:ایران خودرو زیبایی
@@ -35,7 +34,7 @@
                         </li>
                     </ul>
 
-                    <a class="btn see-resume-btn" href="#">
+                    <a class="btn see-resume-btn" href="/resume" target="__blank">
                         <i class="fa fa-eye" aria-hidden="true"></i>
 
                         مشاهده رزومه</a>

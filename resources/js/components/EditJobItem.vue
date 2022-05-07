@@ -111,7 +111,7 @@ export default {
     data() {
         return {
             months: monthsArray,
-            is_working:Boolean(this.job.is_working),
+            is_working:Boolean(this.job.is_working) ?? false,
             
             
         };

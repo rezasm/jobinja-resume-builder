@@ -88,7 +88,7 @@ class PersonController extends Controller
 
         $new_data = request('newPerson'); // array
        
-        $person->email = 'ssxa'; 
+        $person->email =  $new_data['email']; 
         $person->phone = $new_data['phone']; 
         $person->province = $new_data['province']; 
         $person->address = $new_data['address']; 
@@ -99,7 +99,6 @@ class PersonController extends Controller
         $person->save();
         PersonDataSaved::dispatch($person->id);
         return ['msg' => 'Data Saved Successfully'];
-
     }
 
     public function getAboutMe(){

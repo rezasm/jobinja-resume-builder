@@ -112,7 +112,7 @@ function initialState(){
             start_year: "",
             end_month: "",
             end_year: "",
-            is_working: "",
+            is_working: false,
             description: "",
     }
 };

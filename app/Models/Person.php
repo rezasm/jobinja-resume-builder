@@ -16,4 +16,18 @@ class Person extends Model
         return $this->hasMany(Job::class,'person_id');
     }
 
+    public function educations(){
+
+        return $this->hasMany(Education::class,'person_id');
+    }
+
+
+    public function languages(){
+
+
+        return $this->hasMany(Language::class,'person_id');
+
+        
+    }
+
 }
