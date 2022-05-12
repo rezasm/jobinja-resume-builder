@@ -1,9 +1,9 @@
 @font-face {
     font-family: 'Vazir';
-    src:  url('fonts/Vazir-Regular.woff2') format('woff2'),
-    url('fonts/Vazir-Regular.woff') format('woff'),
-    url('fonts/Vazir-Regular.eot') format('eot'),
-    url('fonts/Vazir-Regular.woff') format('woff');
+    src:  url('fonts/Vazir-Regular-FD.woff2') format('woff2'),
+    url('fonts/Vazir-Regular-FD.woff') format('woff'),
+    url('fonts/Vazir-Regular-FD.eot') format('eot'),
+    url('fonts/Vazir-Regular-FD.woff') format('woff');
 
 }
 

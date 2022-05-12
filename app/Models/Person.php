@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +29,14 @@ class Person extends Model
         return $this->hasMany(Language::class,'person_id');
 
         
+    }
+
+    public function getMarriedAttribute()  
+    {
+        return ($this->married = 1) ? 'متاهل' : 'مجرد';
+         
+
+ 
     }
 
 }

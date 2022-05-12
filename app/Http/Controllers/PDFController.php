@@ -16,7 +16,7 @@ class PDFController extends Controller
             'سال تولد'=> 'birth_year' ,
             'جنسیت' => 'gender',
             'وضعیت سربازی' => 'military_service_status',
-            'وضعیت تاهل' => 'marriage',
+            'وضعیت تاهل' => 'married',
             'استان سکونت' => 'province' ,
             'آدرس'=> 'address' ,
 

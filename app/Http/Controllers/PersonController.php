@@ -9,14 +9,11 @@ use Illuminate\Support\Facades\Cookie;
 
 class PersonController extends Controller
 {
-
-   
-
     public function getSummaryData()
     {
 
         $person = Person::find(session('person_id'));
-
+       
         $fullname = $person->fullname ?? '';
         $job_title = $person->job_title ?? '';
         $job_status = $person->job_status ?? '';
