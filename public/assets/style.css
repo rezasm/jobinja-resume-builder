@@ -219,7 +219,7 @@ body{
     width: 80%;
 }
 
-input[type="text"],textarea{
+input[type="text"],input[type="password"],textarea{
     width: 100%;
     padding: 10px;
     border: 1px solid #e5e5e5;

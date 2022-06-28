@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
@@ -20,6 +21,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+
+//auth
+Route::get('/register',[AuthController::class,'register'])->name('register');
+Route::post('/register',[AuthController::class,'sd'])->name('register');
+
+
+
 
 Route::get('/get-summary-data',[PersonController::class,'getSummaryData'])->name('get.summary.data');
 Route::post('/save-summary-data',[PersonController::class,'saveSummaryData'])->name('save.summary.data');
