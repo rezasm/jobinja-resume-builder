@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\PersonDataSaved;
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
 class PersonController extends Controller
@@ -12,8 +13,8 @@ class PersonController extends Controller
     public function getSummaryData()
     {
 
-        $person = Person::find(session('person_id'));
-       
+        $person = Auth::user()->person;
+        
         $fullname = $person->fullname ?? '';
         $job_title = $person->job_title ?? '';
         $job_status = $person->job_status ?? '';
@@ -38,7 +39,7 @@ class PersonController extends Controller
    
 
         $person = Person::updateOrCreate(
-            ['id' => session('person_id')],
+            ['user_id' => Auth::id()],
             [
                 'fullname' => $name,
                 'job_title' => $job_title,
@@ -53,7 +54,7 @@ class PersonController extends Controller
 
     public function getPersonalInfo(){
 
-        $person = Person::find(session('person_id'));
+        $person = Auth::user()->person;
 
 
 
@@ -77,14 +78,14 @@ class PersonController extends Controller
 
     public function savePersonalInfo(){
         
-        $person = Person::find(session('person_id'));
+        $person = Auth::user()->person;
 
         if(!$person){
             $person = new Person();
          }
 
         $new_data = request('newPerson'); // array
-       
+        $person->user_id = Auth::id();
         $person->email =  $new_data['email']; 
         $person->phone = $new_data['phone']; 
         $person->province = $new_data['province']; 
@@ -100,7 +101,7 @@ class PersonController extends Controller
 
     public function getAboutMe(){
 
-        $person = Person::find(session('person_id'));
+        $person = Auth::user()->person;
 
 
         
@@ -111,12 +112,12 @@ class PersonController extends Controller
     }
     public function saveAboutMe(){
 
-        $person = Person::find(session('person_id'));
+        $person = Auth::user()->person;
 
         if(!$person){
             $person = new Person();
 
-            $person->session_id = session()->getId();
+            $person->user_id = Auth::id();
             
         }
         $about_me = request('about_me');
@@ -128,7 +129,7 @@ class PersonController extends Controller
 
     public function getSkills(){
 
-        $person = Person::find(session('person_id'));
+        $person = Auth::user()->person;
 
         $skills_array = explode(',',$person->skills);
 
@@ -143,10 +144,11 @@ class PersonController extends Controller
 
         $skilld_str = implode(',',$skills);
 
-        $person = Person::find(session('person_id'));
+        $person = Auth::user()->person;
 
         if(!$person){
-            $person = new Person();    
+            $person = new Person(); 
+            $person->user_id = Auth::id();   
         }
 
         $person->skills = $skilld_str;
@@ -161,10 +163,11 @@ class PersonController extends Controller
  
         $file = $request->file('image')->store('avatars');
         
-        $person = Person::find(session('person_id'));
+        $person = Auth::user()->person;
 
         if(!$person){
             $person = new Person();           
+            $person->user_id = Auth::id();
         }
         
         $person->image = $file;

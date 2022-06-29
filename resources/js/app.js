@@ -24,6 +24,8 @@ import MyLanguages from "./components/MyLanguages.vue";
 import LanguageItem from "./components/LanguageItem.vue";
 import EditLanguageItem from "./components/EditLanguageItem.vue";
 import NewLanguageItem from "./components/NewLanguageItem.vue";
+import Modal from "./components/Modal.vue";
+import ModalItem from "./components/ModalItem.vue";
 
 
 
@@ -81,6 +83,8 @@ app.component("MyLanguages",MyLanguages);
 app.component("LanguageItem",LanguageItem);
 app.component("EditLanguageItem",EditLanguageItem);
 app.component("NewLanguageItem",NewLanguageItem);
+app.component("Modal",Modal);
+app.component("ModalItem",ModalItem);
 
 app.use(VueAxios, axios) 
 app.use(i18n) 

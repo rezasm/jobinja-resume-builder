@@ -355,3 +355,11 @@ transition: opacity 0.9s ease;
   opacity: 0;
 }
 
+.box-header-icon{
+    position: absolute;
+    left: 15px;
+    padding: 0 15px;
+    cursor: pointer;
+ }
+
+ 
