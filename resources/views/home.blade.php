@@ -34,7 +34,10 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">رزومه های من</a>
+                  
+                                
+                            <a class="nav-link active" aria-current="page" href="#">خروج</a>
+                         
 
                         </li>
                     </ul>

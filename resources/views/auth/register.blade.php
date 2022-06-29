@@ -13,13 +13,12 @@
 <body>
     
     <div class="container">
-        <form class="d-flex flex-column flex-nowrap" action="" method="post">
-
+        <form class="d-flex flex-column flex-nowrap" action="{{route('user.store')}}" method="post">
+            @csrf
             <div class="row justify-content-center">
                 <div class="col-lg-4">
                     <label for="">ایمیل</label>
                     <input name="email" type="text">
-                   
                 </div>
     
             </div>
