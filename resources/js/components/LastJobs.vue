@@ -42,10 +42,19 @@
                 
              </template>
             <template #body>
-
+                   <draggable @start="drag=true" @end="drag=false"
+                            item-key="id" v-model="jobs" group="my-group"
+                        >
                 <modal-item v-for="job in jobs" :job="job">
 
                 </modal-item>
+                        <!-- <template #item="{element}">
+                            
+                                
+                        
+                        </template> -->
+
+                        </draggable>
 
 
             </template>

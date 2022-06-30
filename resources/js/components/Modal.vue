@@ -7,6 +7,8 @@
                         <slot name="header"></slot>
                     </div>
                     <div class="modal-body">
+
+                     
                         <slot name="body"> </slot>
                     </div>
                     <div class="modal-footer">
@@ -30,9 +32,19 @@
 
 
 <script>
+
+import draggable from 'vuedraggable';
 export default {
+    components:{
+        draggable,
+    },
     props: {
         show: Boolean,
+    },
+    data() {
+        return {
+            drag:false,
+        }
     },
 };
 </script>
